@@ -22,7 +22,7 @@ br.shuffle_rotor(rotor_iii)
 br.shuffle_rotor(rotor_iv)
 br.shuffle_rotor(rotor_v)
 
-filepath = "/home/bumper/python/enigma_machine/rotors.txt"
+filepath = "path_to_file"
 br.check_for_rotor_file(filepath)
 
 br.write_rotor_file(rotor_i)
