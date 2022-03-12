@@ -1,3 +1,6 @@
+# Additional ignores for enigma project
+rotors.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
