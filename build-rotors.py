@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """create-rotors.py file"""
 import random
+import os
 
 
 def build_rotor(rotor_list):
@@ -19,8 +20,9 @@ def shuffle_rotor(rotor, n = 17576):
         random.shuffle(rotor)
 
 
-def check_for_rotor_file():
-    pass
+def check_for_rotor_file(filename):
+    if os.path.isfile(filename):
+        os.unlink(filename)
 
 
 def write_rotor_file(rotor):
@@ -50,6 +52,9 @@ def main():
     shuffle_rotor(rotor_iii, 1)
     shuffle_rotor(rotor_iv, 1)
     shuffle_rotor(rotor_v, 1)
+
+    filepath = "/home/bumper/python/enigma_machine/rotors.txt"
+    check_for_rotor_file(filepath)
 
     write_rotor_file(rotor_i)
     write_rotor_file(rotor_ii)
