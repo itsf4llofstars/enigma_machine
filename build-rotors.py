@@ -14,9 +14,22 @@ def build_rotor(rotor_list):
             rotor_list.append(rotor_letter)
 
 
-def shuffle_rotor(rotor, n = 10000):
+def shuffle_rotor(rotor, n = 17576):
     for _ in range(n):
         random.shuffle(rotor)
+
+
+def check_for_rotor_file():
+    pass
+
+
+def write_rotor_file(rotor):
+    try:
+        with open("rotors.txt", "a") as write:
+            write.write(str(rotor))
+            write.write("\n")
+    except FileNotFoundError as fnfe:
+        print(f"ERROR: {fnfe}")
 
 
 def main():
@@ -32,17 +45,23 @@ def main():
     build_rotor(rotor_iv)
     build_rotor(rotor_v)
 
-    shuffle_rotor(rotor_i)
-    shuffle_rotor(rotor_ii)
-    shuffle_rotor(rotor_iii)
-    shuffle_rotor(rotor_iv)
-    shuffle_rotor(rotor_v)
+    shuffle_rotor(rotor_i, 1)
+    shuffle_rotor(rotor_ii, 1)
+    shuffle_rotor(rotor_iii, 1)
+    shuffle_rotor(rotor_iv, 1)
+    shuffle_rotor(rotor_v, 1)
 
-    print(rotor_i)
-    print(rotor_ii)
-    print(rotor_iii)
-    print(rotor_iv)
-    print(rotor_v)
+    write_rotor_file(rotor_i)
+    write_rotor_file(rotor_ii)
+    write_rotor_file(rotor_iii)
+    write_rotor_file(rotor_iv)
+    write_rotor_file(rotor_v)
+
+    # print(rotor_i)
+    # print(rotor_ii)
+    # print(rotor_iii)
+    # print(rotor_iv)
+    # print(rotor_v)
 
 
 if __name__ == "__main__":
