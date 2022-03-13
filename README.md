@@ -18,3 +18,8 @@ This will begin with a loosley based operation of the German Enigma Machine.
 
 The above notes are for the author, they may not be readalbe or clear to others, please see<br>
 script documentation if available.<br>
+
+## Paper Enigma
+
+The paper enigma is ready for research from input to the reflector. A text file and an exhaustive<br>
+hand trace is needed to insert proper coding.
