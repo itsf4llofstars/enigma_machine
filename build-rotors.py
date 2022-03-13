@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """build-rotors.py file"""
-import random
 import os
+import random
 
 
 def build_rotor(rotor_list):
