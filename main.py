@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """main.py file"""
-from enigma import Enigma
-import utilities as f
 import build_rotors as br
+import utilities as f
+from enigma import Enigma
 
 rotor_i = []
 rotor_ii = []
