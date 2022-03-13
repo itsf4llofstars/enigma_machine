@@ -32,10 +32,34 @@ class PaperEnigma:
         rotors_string = f"{self.rotors['left_in']}\n{self.rotors['left_out']}\n\n{self.rotors['center_in']}\n{self.rotors['center_out']}\n\n{self.rotors['right_in']}\n{self.rotors['right_out']}"
         return rotors_string
 
-    def print_rotors():
-        for k, v in self.rotors.items():
-            print(k, v)
+    def print_left(self):
+        for letter in self.rotors["left_in"]:
+            print(letter, end="")
+        print()
+        for letter in self.rotors["left_out"]:
+            print(letter, end="")
+        print()
+        print()
 
+    def print_center(self):
+        for letter in self.rotors["center_in"]:
+            print(letter, end="")
+        print()
+        for letter in self.rotors["center_out"]:
+            print(letter, end="")
+        print()
+        print()
+
+    def print_right(self):
+        for letter in self.rotors["right_in"]:
+            print(letter, end="")
+        print()
+        for letter in self.rotors["right_out"]:
+            print(letter, end="")
+        print()
+        print()
+
+        
     def set_rotors(self):
         if self.days_rotors[0] == "I":
             self.rotors["left"][1] = self.rotor_i_in
@@ -61,7 +85,9 @@ class PaperEnigma:
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"])
-    enigma.print_rotors()
+    enigma.print_left()
+    enigma.print_center()
+    enigma.print_right()
 
 
 if __name__ == "__main__":
