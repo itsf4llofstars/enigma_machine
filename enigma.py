@@ -2,6 +2,10 @@
 """enigma.py class file"""
 
 
+class Enigma:
+    pass
+
+
 def main():
     pass
 
