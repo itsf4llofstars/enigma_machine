@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""create-rotors.py file"""
-import random
+"""build-rotors.py file"""
 import os
+import random
 
 
 def build_rotor(rotor_list):
@@ -15,7 +15,7 @@ def build_rotor(rotor_list):
             rotor_list.append(rotor_letter)
 
 
-def shuffle_rotor(rotor, n = 17576):
+def shuffle_rotor(rotor, n=17576):
     for _ in range(n):
         random.shuffle(rotor)
 

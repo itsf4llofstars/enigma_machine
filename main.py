@@ -1,14 +1,14 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 """main.py file"""
-from enigma import Enigma
-import utilities as f
 import build_rotors as br
+import utilities as f
+from enigma import Enigma
 
-rotor_i = []
-rotor_ii = []
-rotor_iii = []
-rotor_iv = []
-rotor_v = []
+rotor_i: List[str] = []
+rotor_ii: List[str] = []
+rotor_iii: List[str] = []
+rotor_iv: List[str] = []
+rotor_v: List[str] = []
 
 br.build_rotor(rotor_i)
 br.build_rotor(rotor_ii)
