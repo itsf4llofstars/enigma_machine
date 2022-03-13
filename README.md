@@ -2,7 +2,7 @@
 
 A simulator of the German Enigma Mahcine of WWII.<br>
 
-### Operation
+## Operation
 
 This will begin with a loosley based operation of the German Enigma Machine.
 
