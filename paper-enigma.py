@@ -58,7 +58,6 @@ class PaperEnigma:
             print(letter, end="")
         print()
         print()
-
         
     def set_rotors(self):
         if self.days_rotors[0] == "I":
@@ -82,12 +81,34 @@ class PaperEnigma:
         else:
             self.rotors["right"][1] = self.rotor_iii_in
 
+    def rotate_left(self, n=-1):
+        deque.rotate(self.rotors["left_in"], n)
+        deque.rotate(self.rotors["left_out"], n)
+
+    def rotate_center(self, n=-1):
+        deque.rotate(self.rotors["center_in"], n)
+        deque.rotate(self.rotors["center_out"], n)
+
+    def rotate_right(self, n=-1):
+        deque.rotate(self.rotors["right_in"], n)
+        deque.rotate(self.rotors["right_out"], n)
+
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"])
     enigma.print_left()
     enigma.print_center()
     enigma.print_right()
+    print("-" * 80)
+
+    enigma.rotate_left()
+    enigma.rotate_center()
+    enigma.rotate_right()
+
+    enigma.print_left()
+    enigma.print_center()
+    enigma.print_right()
+    print("-" * 80)
 
 
 if __name__ == "__main__":
