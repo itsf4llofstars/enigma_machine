@@ -61,7 +61,7 @@ class PaperEnigma:
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"])
-    print(enigma)
+    enigma.print_rotors()
 
 
 if __name__ == "__main__":
