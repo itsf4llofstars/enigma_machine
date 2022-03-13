@@ -15,7 +15,7 @@ def build_rotor(rotor_list):
             rotor_list.append(rotor_letter)
 
 
-def shuffle_rotor(rotor, n = 17576):
+def shuffle_rotor(rotor, n=17576):
     for _ in range(n):
         random.shuffle(rotor)
 
