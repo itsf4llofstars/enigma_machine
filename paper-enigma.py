@@ -33,7 +33,8 @@ class PaperEnigma:
         return rotors_string
 
     def print_rotors():
-        pass
+        for k, v in self.rotors.items():
+            print(k, v)
 
     def set_rotors(self):
         if self.days_rotors[0] == "I":
