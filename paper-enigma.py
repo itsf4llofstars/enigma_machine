@@ -93,6 +93,12 @@ class PaperEnigma:
         deque.rotate(self.rotors["right_in"], n)
         deque.rotate(self.rotors["right_out"], n)
 
+    def get_index_of_letter(self, rotor, letter):
+        return rotor.index(letter)
+
+    def get_letter_at_index(self, rotor, index):
+        return rotor[index]
+
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"])
@@ -101,14 +107,22 @@ def main():
     enigma.print_right()
     print("-" * 80)
 
-    enigma.rotate_left()
-    enigma.rotate_center()
-    enigma.rotate_right()
+    for _ in range(10):
+        enigma.rotate_left()
+        enigma.rotate_right()
+    for _ in range(2):
+        enigma.rotate_center()
+        enigma.rotate_right()
 
     enigma.print_left()
     enigma.print_center()
     enigma.print_right()
     print("-" * 80)
+
+    letter = "H"
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
+    letter_out = enigma.get_letter_at_index(enigma.rotors["left_out"], index_of_letter)
+    print(index_of_letter, letter_out)
 
 
 if __name__ == "__main__":
