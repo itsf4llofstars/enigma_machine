@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""create-rotors.py file"""
+"""build-rotors.py file"""
 import random
 import os
 
