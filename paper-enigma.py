@@ -102,10 +102,6 @@ class PaperEnigma:
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"])
-    enigma.print_left()
-    enigma.print_center()
-    enigma.print_right()
-    print("-" * 80)
 
     for _ in range(10):
         enigma.rotate_left()
@@ -114,15 +110,27 @@ def main():
         enigma.rotate_center()
         enigma.rotate_right()
 
+    enigma.rotate_left()
+
     enigma.print_left()
     enigma.print_center()
     enigma.print_right()
     print("-" * 80)
 
-    letter = "H"
+    letter = "E"
+
     index_of_letter = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
-    letter_out = enigma.get_letter_at_index(enigma.rotors["left_out"], index_of_letter)
-    print(index_of_letter, letter_out)
+    letter = enigma.get_letter_at_index(enigma.rotors["left_out"], index_of_letter)
+    print(index_of_letter, letter)
+
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
+    letter = enigma.get_letter_at_index(enigma.rotors["left_out"], index_of_letter)
+    print(index_of_letter, letter)
+
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
+    letter = enigma.get_letter_at_index(enigma.rotors["left_out"], index_of_letter)
+
+    print(index_of_letter, letter)
 
 
 if __name__ == "__main__":
