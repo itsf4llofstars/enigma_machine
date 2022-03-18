@@ -25,18 +25,21 @@ class ShortEnigma:
         self.key = key.upper()
 
     def left_rotor(self):
+        print("Left")
         [print(letter, end=" ") for letter in self.rotors["left_in"]]
         print()
         [print(letter, end=" ") for letter in self.rotors["left_ou"]]
         print("\n")
 
     def right_rotor(self):
+        print("Right")
         [print(letter, end=" ") for letter in self.rotors["right_in"]]
         print()
         [print(letter, end=" ") for letter in self.rotors["right_ou"]]
         print("\n")
 
     def center_rotor(self):
+        print("Center")
         [print(letter, end=" ") for letter in self.rotors["center_in"]]
         print()
         [print(letter, end=" ") for letter in self.rotors["center_ou"]]
@@ -67,6 +70,12 @@ class ShortEnigma:
         deque.rotate(self.rotors["right_in"], -1)
         deque.rotate(self.rotors["right_ou"], -1)
 
+    def get_index(self, rotor, letter):
+        return rotor.index(letter)
+
+    def get_letter(self, rotor, index):
+        return rotor[index]
+
 
 def main():
     enigma = ShortEnigma("ceb")
@@ -83,6 +92,12 @@ def main():
 
     enigma.rotate_right()
     enigma.right_rotor()
+
+    letter = "b"
+    index = enigma.get_index(enigma.in_out, letter.upper())
+    print(f"Index: {index}")
+    letter = enigma.get_letter(enigma.rotors["right_in"], index)
+    print(f"Letter: {letter}")
 
 
 if __name__ == "__main__":
