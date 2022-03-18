@@ -42,9 +42,30 @@ class ShortEnigma:
         [print(letter, end=" ") for letter in self.rotors["center_ou"]]
         print("\n")
 
+    def set_key(self):
+        while self.rotors["left_ou"][0] != self.key[0]:
+            deque.rotate(self.rotors["left_in"])
+            deque.rotate(self.rotors["left_ou"])
+
+        while self.rotors["center_ou"][0] != self.key[1]:
+            deque.rotate(self.rotors["center_in"])
+            deque.rotate(self.rotors["center_ou"])
+
+        while self.rotors["right_ou"][0] != self.key[2]:
+            deque.rotate(self.rotors["right_in"])
+            deque.rotate(self.rotors["right_ou"])
+
+
 
 def main():
     enigma = ShortEnigma("ceb")
+
+    enigma.right_rotor()
+    enigma.center_rotor()
+    enigma.left_rotor()
+
+    enigma.set_key()
+
     enigma.right_rotor()
     enigma.center_rotor()
     enigma.left_rotor()
