@@ -6,12 +6,12 @@ class ShortEnigma:
     def __init__(self, key):
         self.in_out = deque(['A', 'B', 'C', 'D', 'E'])
 
-        self.rotor_1_in = deque(['V', 'Z', 'W', 'O', 'X'])
-        self.rotor_1_ou = deque(['A', 'B', 'C', 'D', 'E'])
-        self.rotor_2_in = deque(['E', 'M', 'L', 'G', 'D'])
-        self.rotor_2_ou = deque(['A', 'B', 'C', 'D', 'E'])
-        self.rotor_3_in = deque(['J', 'H', 'L', 'F', 'T'])
-        self.rotor_3_ou = deque(['A', 'B', 'C', 'D', 'E'])
+        self.rotor_1_in = deque(['V', 'Z', 'W', 'O', 'X', 'V', 'Z', 'W', 'O', 'X'])
+        self.rotor_1_ou = deque(['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E'])
+        self.rotor_2_in = deque(['E', 'M', 'L', 'G', 'D', 'E', 'M', 'L', 'G', 'D'])
+        self.rotor_2_ou = deque(['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E'])
+        self.rotor_3_in = deque(['J', 'H', 'L', 'F', 'T', 'J', 'H', 'L', 'F', 'T'])
+        self.rotor_3_ou = deque(['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E'])
 
         self.rotors = {
             "left_in": self.rotor_1_in,
@@ -55,6 +55,17 @@ class ShortEnigma:
             deque.rotate(self.rotors["right_in"])
             deque.rotate(self.rotors["right_ou"])
 
+    def rotate_left(self):
+        deque.rotate(self.rotors["left_in"], -1)
+        deque.rotate(self.rotors["left_ou"], -1)
+
+    def rotate_center(self):
+        deque.rotate(self.rotors["center_in"], -1)
+        deque.rotate(self.rotors["center_ou"], -1)
+
+    def rotate_right(self):
+        deque.rotate(self.rotors["right_in"], -1)
+        deque.rotate(self.rotors["right_ou"], -1)
 
 
 def main():
@@ -69,6 +80,9 @@ def main():
     enigma.right_rotor()
     enigma.center_rotor()
     enigma.left_rotor()
+
+    enigma.rotate_right()
+    enigma.right_rotor()
 
 
 if __name__ == "__main__":
