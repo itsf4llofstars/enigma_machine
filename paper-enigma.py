@@ -34,31 +34,31 @@ class PaperEnigma:
 
     def print_left(self):
         for letter in self.rotors["left_in"]:
-            print(letter, end="")
+            print(letter, end=" ")
         print()
         for letter in self.rotors["left_out"]:
-            print(letter, end="")
+            print(letter, end=" ")
         print()
         print()
 
     def print_center(self):
         for letter in self.rotors["center_in"]:
-            print(letter, end="")
+            print(letter, end=" ")
         print()
         for letter in self.rotors["center_out"]:
-            print(letter, end="")
+            print(letter, end=" ")
         print()
         print()
 
     def print_right(self):
         for letter in self.rotors["right_in"]:
-            print(letter, end="")
+            print(letter, end=" ")
         print()
         for letter in self.rotors["right_out"]:
-            print(letter, end="")
+            print(letter, end=" ")
         print()
         print()
-        
+
     def set_rotors(self):
         if self.days_rotors[0] == "I":
             self.rotors["left"][1] = self.rotor_i_in
@@ -134,4 +134,6 @@ def main():
 
 
 if __name__ == "__main__":
+    import os
+    os.system("clear")
     main()
