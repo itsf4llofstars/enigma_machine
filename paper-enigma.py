@@ -113,8 +113,29 @@ def main():
 
     print("-" * 80)
 
-    letter = "E"
+    letter = "e"
+    index = enigma.get_index_of_letter(enigma.in_out, letter.upper())
+    print(f"Input Letter: {letter.upper()} index: {index}")
 
+    letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
+    print(f"Right rotor input letter: {letter}")
+    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_out"], letter, index)
+    index, letter = rotor_out_info
+    print(f"Right rotor output index: {index}\n")
+
+    # Operating on the center rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
+    print(f"Center rotor input letter: {letter}")
+    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_out"], letter, index)
+    index, letter = rotor_out_info
+    print(f"Center rotor output index: {index}\n")
+
+    # Operating on the left rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
+    print(f"Left rotor input letter: {letter}")
+    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_out"], letter, index)
+    index, letter = rotor_out_info
+    print(f"Left rotor output index: {index}\n")
 
 if __name__ == "__main__":
     import os
