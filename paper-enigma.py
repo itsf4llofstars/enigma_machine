@@ -63,7 +63,7 @@ class PaperEnigma:
         print()
         print()
 
-    def set_rotor_key(self):
+    def set_key(self):
         while self.rotors["left_out"][0] != self.key[0]:
             deque.rotate(self.rotors["left_in"])
             deque.rotate(self.rotors["left_out"])
@@ -94,10 +94,16 @@ class PaperEnigma:
     def get_letter_at_index(self, rotor, index):
         return rotor[index]
 
+    def find_rotor_out_info(self, rotor, letter, index):
+        while rotor[index] != letter:
+            index = (index + 1) % 26
+
+        return index, rotor[index]
+
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"], 'mck')
-    enigma.set_rotor_key()
+    enigma.set_key()
     enigma.print_right()
 
     enigma.rotate_right()
