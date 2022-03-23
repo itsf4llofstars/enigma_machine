@@ -86,6 +86,9 @@ class ShortEnigma:
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
 
+    def get_letter_of_index(self, rotor, index):
+        return rotor[index]
+
     def get_letter_at_index(self, rotor, index):
         return rotor[index]
 
@@ -152,6 +155,17 @@ def main():
     print(f"Reflector output index = {reflector_output_index}")
 
     """Going To The Output"""
+    letter = enigma.get_letter_at_index(enigma.rotors["left_ou"], reflector_output_index)
+    index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
+    print(letter, index)
+
+    letter = enigma.get_letter_at_index(enigma.rotors["center_ou"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["center_in"], letter)
+    print(letter, index)
+
+    letter = enigma.get_letter_at_index(enigma.rotors["right_ou"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["right_in"], letter)
+    print(letter, index)
 
 
 if __name__ == "__main__":
