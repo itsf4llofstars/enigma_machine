@@ -28,7 +28,7 @@ class ShortEnigma:
 
         self.key = key.upper()
 
-    def in_out(self):
+    def input_output(self):
         print("Input/Output")
         [print(letter, end=" ") for letter in self.in_out]
         print("\n")
@@ -108,53 +108,47 @@ def main():
     enigma.right_rotor()
     enigma.rotate_right()
 
-    enigma.in_out()
+    enigma.input_output()
     enigma.right_rotor()
     enigma.center_rotor()
     enigma.left_rotor()
     enigma.show_reflector()
 
-    """This line of code maps the input letter to index 0 of the right rotor"""
     letter = "d"
+    index = enigma.get_index_of_letter(enigma.in_out, letter.upper())
+    print(f"Input Letter: {letter.upper()} index: {index}")
 
-    if 1:
-        """This line maps the input leters index in the in_out list to the
-        index of the input side of the right rotor
-        """
-        letter = "d"
-        index = enigma.get_index_of_letter(enigma.in_out, letter.upper())
-        print(f"Input Letter: {letter.upper()} index: {index}")
+    # Right rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
+    print(f"Right rotor Input Letter: {letter}")
+    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_ou"], letter, index)
+    index, letter = rotor_out_info
+    print(f"Right rotor output index: {index}")
 
-        # Right rotor
-        letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
-        print(f"Right rotor Input Letter: {letter}")
-        rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_ou"], letter, index)
-        index, letter = rotor_out_info
-        print(f"Right rotor output index: {index}")
+    # Center rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
+    print(f"Center rotor Input Letter: {letter}")
+    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_ou"], letter, index)
+    index, letter = rotor_out_info
+    print(f"Center rotor output index: {index}")
 
-        # Center rotor
-        letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
-        print(f"Center rotor Input Letter: {letter}")
-        rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_ou"], letter, index)
-        index, letter = rotor_out_info
-        print(f"Center rotor output index: {index}")
+    # Left rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
+    print(f"Left rotor Input Letter: {letter}")
+    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_ou"], letter, index)
+    index, letter = rotor_out_info
+    print(f"Left rotor output index: {index}")
 
-        # Left rotor
-        letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
-        print(f"Left rotor Input Letter: {letter}")
-        rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_ou"], letter, index)
-        index, letter = rotor_out_info
-        print(f"Left rotor output index: {index}")
+    # Reflector
+    reflector_letter = enigma.get_letter_at_index(enigma.reflector, index)
+    print(f"Reflector Letter: {reflector_letter}")
+    # reflector_index = enigma.get_index_of_letter(enigma.reflector, reflector_letter)
+    reflector_index = index
+    print(f"Reflector index of letter: {reflector_letter} -> {reflector_index}")
 
-        # Reflector
-        reflector_letter = enigma.get_letter_at_index(enigma.reflector, index)
-        print(f"Reflector Letter: {reflector_letter}")
-        reflector_index = enigma.get_index_of_letter(enigma.reflector, reflector_letter)
-        print(f"Reflector index of letter: {reflector_letter} -> {reflector_index}")
-
-        # Reflector output index
-        reflector_output_index = enigma.get_reflector_out_index(reflector_index, reflector_letter)
-        print(f"Reflector output index = {reflector_output_index}")
+    # Reflector output index
+    reflector_output_index = enigma.get_reflector_out_index(reflector_index, reflector_letter)
+    print(f"Reflector output index = {reflector_output_index}")
 
 
 if __name__ == "__main__":
