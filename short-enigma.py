@@ -89,6 +89,12 @@ class ShortEnigma:
             index = (index + 1) % 6
         return index, rotor[index]
 
+    def get_reflector_out_index(self, in_index, reflector_in_letter):
+        in_index = (1 + in_index) % 6
+        while self.reflector[in_index] != reflector_in_letter:
+            in_index = (1 + in_index) % 6
+        return in_index
+
 
 def main():
     enigma = ShortEnigma("ceb")
@@ -102,7 +108,7 @@ def main():
     enigma.left_rotor()
     enigma.show_reflector()
 
-    letter = "b"
+    letter = "d"
     index = enigma.get_index_of_letter(enigma.in_out, letter.upper())
     print(f"Input Letter: {letter.upper()} index: {index}")
 
@@ -130,6 +136,12 @@ def main():
     # Reflector
     reflector_letter = enigma.get_letter_at_index(enigma.reflector, index)
     print(f"Reflector Letter: {reflector_letter}")
+    reflector_index = enigma.get_index_of_letter(enigma.reflector, reflector_letter)
+    print(f"Reflector index of letter: {reflector_letter} -> {reflector_index}")
+
+    # Reflector output index
+    reflector_output_index = enigma.get_reflector_out_index(reflector_index, reflector_letter)
+    print(f"Reflector output index = {reflector_output_index}")
 
 
 if __name__ == "__main__":
