@@ -120,28 +120,21 @@ def main():
     """Going To The Reflector"""
     letter = "d"
     index = enigma.get_index_of_letter(enigma.in_out, letter.upper())
-    ##print(f"Input Letter: {letter.upper()} index: {index}")
 
     # Right rotor
     letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
-    ##print(f"Right rotor Input Letter: {letter}")
     rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_ou"], letter, index)
     index, letter = rotor_out_info
-    ##print(f"Right rotor output index: {index}")
 
     # Center rotor
     letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
-    ##print(f"Center rotor Input Letter: {letter}")
     rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_ou"], letter, index)
     index, letter = rotor_out_info
-    ##print(f"Center rotor output index: {index}")
 
     # Left rotor
     letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
-    ##print(f"Left rotor Input Letter: {letter}")
     rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_ou"], letter, index)
     index, letter = rotor_out_info
-    ##print(f"Left rotor output index: {index}")
 
     """Inside the Reflector"""
     # Reflector
@@ -157,15 +150,18 @@ def main():
     """Going To The Output"""
     letter = enigma.get_letter_at_index(enigma.rotors["left_ou"], reflector_output_index)
     index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
-    print(letter, index)
+    print(f"Letter, Index: {letter}, {index}")
 
     letter = enigma.get_letter_at_index(enigma.rotors["center_ou"], index)
     index = enigma.get_index_of_letter(enigma.rotors["center_in"], letter)
-    print(letter, index)
+    print(f"Letter, Index: {letter}, {index}")
 
     letter = enigma.get_letter_at_index(enigma.rotors["right_ou"], index)
     index = enigma.get_index_of_letter(enigma.rotors["right_in"], letter)
-    print(letter, index)
+    print(f"Letter, Index: {letter}, {index}")
+
+    encoded_letter = enigma.get_letter_at_index(enigma.in_out, index)
+    print(f"Encoded Letter: {encoded_letter}")
 
 
 if __name__ == "__main__":
