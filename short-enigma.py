@@ -114,41 +114,44 @@ def main():
     enigma.left_rotor()
     enigma.show_reflector()
 
+    """Going To The Reflector"""
     letter = "d"
     index = enigma.get_index_of_letter(enigma.in_out, letter.upper())
-    print(f"Input Letter: {letter.upper()} index: {index}")
+    ##print(f"Input Letter: {letter.upper()} index: {index}")
 
     # Right rotor
     letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
-    print(f"Right rotor Input Letter: {letter}")
+    ##print(f"Right rotor Input Letter: {letter}")
     rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_ou"], letter, index)
     index, letter = rotor_out_info
-    print(f"Right rotor output index: {index}")
+    ##print(f"Right rotor output index: {index}")
 
     # Center rotor
     letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
-    print(f"Center rotor Input Letter: {letter}")
+    ##print(f"Center rotor Input Letter: {letter}")
     rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_ou"], letter, index)
     index, letter = rotor_out_info
-    print(f"Center rotor output index: {index}")
+    ##print(f"Center rotor output index: {index}")
 
     # Left rotor
     letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
-    print(f"Left rotor Input Letter: {letter}")
+    ##print(f"Left rotor Input Letter: {letter}")
     rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_ou"], letter, index)
     index, letter = rotor_out_info
-    print(f"Left rotor output index: {index}")
+    ##print(f"Left rotor output index: {index}")
 
+    """Inside the Reflector"""
     # Reflector
     reflector_letter = enigma.get_letter_at_index(enigma.reflector, index)
     print(f"Reflector Letter: {reflector_letter}")
-    # reflector_index = enigma.get_index_of_letter(enigma.reflector, reflector_letter)
     reflector_index = index
     print(f"Reflector index of letter: {reflector_letter} -> {reflector_index}")
 
     # Reflector output index
     reflector_output_index = enigma.get_reflector_out_index(reflector_index, reflector_letter)
     print(f"Reflector output index = {reflector_output_index}")
+
+    """Going To The Output"""
 
 
 if __name__ == "__main__":
