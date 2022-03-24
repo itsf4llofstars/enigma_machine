@@ -108,69 +108,58 @@ def main():
     enigma = ShortEnigma("ceb")
     enigma.set_key()
 
-    enigma.right_rotor()
-    enigma.rotate_right()
+    # enigma.right_rotor()
+    # enigma.rotate_right()
 
-    enigma.input_output()
-    enigma.right_rotor()
-    enigma.center_rotor()
-    enigma.left_rotor()
-    enigma.show_reflector()
+    # enigma.input_output()
+    # enigma.right_rotor()
+    # enigma.center_rotor()
+    # enigma.left_rotor()
+    # enigma.show_reflector()
 
     """Going To The Reflector"""
     # input_letter = "d"
     while True:
+        enigma.rotate_right()
         input_letter = input("Letter: ")
         index = enigma.get_index_of_letter(enigma.in_out, input_letter.upper())
-        print(input_letter)
 
         # Right rotor
         letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
         index = enigma.get_index_of_letter(enigma.rotors["right_ou"], letter)
-        print(letter, index)
-        # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_ou"], letter, index)
-        # index, letter = rotor_out_info
 
         # Center rotor
         letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
         index = enigma.get_index_of_letter(enigma.rotors["center_ou"], letter)
-        print(letter, index)
-        # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_ou"], letter, index)
-        # index, letter = rotor_out_info
 
         # Left rotor
         letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
         index = enigma.get_index_of_letter(enigma.rotors["left_ou"], letter)
-        print(letter, index)
-        # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_ou"], letter, index)
-        # index, letter = rotor_out_info
 
         """Inside the Reflector"""
         # Reflector
         reflector_letter = enigma.get_letter_at_index(enigma.reflector, index)
-        print(f"Reflector Letter: {reflector_letter}")
+        # print(f"Reflector Letter: {reflector_letter}")
         reflector_index = index
-        print(f"Reflector index of letter: {reflector_letter} -> {reflector_index}")
+        # print(f"Reflector index of letter: {reflector_letter} -> {reflector_index}")
 
         # Reflector output index
         reflector_output_index = enigma.get_reflector_out_index(reflector_index, reflector_letter)
-        print(f"Reflector output index = {reflector_output_index}")
+        # print(f"Reflector output index = {reflector_output_index}")
 
         """Going To The Output"""
         letter = enigma.get_letter_at_index(enigma.rotors["left_ou"], reflector_output_index)
         index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
-        print(f"Letter, Index: {letter}, {index}")
 
         letter = enigma.get_letter_at_index(enigma.rotors["center_ou"], index)
         index = enigma.get_index_of_letter(enigma.rotors["center_in"], letter)
-        print(f"Letter, Index: {letter}, {index}")
 
         letter = enigma.get_letter_at_index(enigma.rotors["right_ou"], index)
         index = enigma.get_index_of_letter(enigma.rotors["right_in"], letter)
-        print(f"Letter, Index: {letter}, {index}")
 
         encoded_letter = enigma.get_letter_at_index(enigma.in_out, index)
-        print(f"Encoded Letter: {encoded_letter}")
+
+        print(f"{input_letter} --> {encoded_letter}")
 
 
 if __name__ == "__main__":
