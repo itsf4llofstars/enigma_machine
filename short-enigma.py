@@ -38,21 +38,21 @@ class ShortEnigma:
         print("Left")
         [print(letter, end=" ") for letter in self.rotors["left_in"]]
         print()
-        [print(letter, end=" ") for letter in self.rotors["left_ou"]]
+        [print(letter, end=" ") for letter in self.rotors["left_out"]]
         print("\n")
 
     def right_rotor(self):
         print("Right")
         [print(letter, end=" ") for letter in self.rotors["right_in"]]
         print()
-        [print(letter, end=" ") for letter in self.rotors["right_ou"]]
+        [print(letter, end=" ") for letter in self.rotors["right_out"]]
         print("\n")
 
     def center_rotor(self):
         print("Center")
         [print(letter, end=" ") for letter in self.rotors["center_in"]]
         print()
-        [print(letter, end=" ") for letter in self.rotors["center_ou"]]
+        [print(letter, end=" ") for letter in self.rotors["center_out"]]
         print("\n")
 
     def show_reflector(self):
@@ -60,29 +60,29 @@ class ShortEnigma:
         print("\n")
 
     def set_key(self):
-        while self.rotors["left_ou"][0] != self.key[0]:
+        while self.rotors["left_out"][0] != self.key[0]:
             deque.rotate(self.rotors["left_in"])
-            deque.rotate(self.rotors["left_ou"])
+            deque.rotate(self.rotors["left_out"])
 
-        while self.rotors["center_ou"][0] != self.key[1]:
+        while self.rotors["center_out"][0] != self.key[1]:
             deque.rotate(self.rotors["center_in"])
-            deque.rotate(self.rotors["center_ou"])
+            deque.rotate(self.rotors["center_out"])
 
-        while self.rotors["right_ou"][0] != self.key[2]:
+        while self.rotors["right_out"][0] != self.key[2]:
             deque.rotate(self.rotors["right_in"])
-            deque.rotate(self.rotors["right_ou"])
+            deque.rotate(self.rotors["right_out"])
 
     def rotate_left(self):
         deque.rotate(self.rotors["left_in"], -1)
-        deque.rotate(self.rotors["left_ou"], -1)
+        deque.rotate(self.rotors["left_out"], -1)
 
     def rotate_center(self):
         deque.rotate(self.rotors["center_in"], -1)
-        deque.rotate(self.rotors["center_ou"], -1)
+        deque.rotate(self.rotors["center_out"], -1)
 
     def rotate_right(self):
         deque.rotate(self.rotors["right_in"], -1)
-        deque.rotate(self.rotors["right_ou"], -1)
+        deque.rotate(self.rotors["right_out"], -1)
 
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
@@ -121,35 +121,32 @@ def main():
 
         # Right rotor
         letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
-        index = enigma.get_index_of_letter(enigma.rotors["right_ou"], letter)
+        index = enigma.get_index_of_letter(enigma.rotors["right_out"], letter)
 
         # Center rotor
         letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
-        index = enigma.get_index_of_letter(enigma.rotors["center_ou"], letter)
+        index = enigma.get_index_of_letter(enigma.rotors["center_out"], letter)
 
         # Left rotor
         letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
-        index = enigma.get_index_of_letter(enigma.rotors["left_ou"], letter)
+        index = enigma.get_index_of_letter(enigma.rotors["left_out"], letter)
 
         """Inside the Reflector"""
         # Reflector
         reflector_letter = enigma.get_letter_at_index(enigma.reflector, index)
-        # print(f"Reflector Letter: {reflector_letter}")
         reflector_index = index
-        # print(f"Reflector index of letter: {reflector_letter} -> {reflector_index}")
 
         # Reflector output index
         reflector_output_index = enigma.get_reflector_out_index(reflector_index, reflector_letter)
-        # print(f"Reflector output index = {reflector_output_index}")
 
         """Going To The Output"""
-        letter = enigma.get_letter_at_index(enigma.rotors["left_ou"], reflector_output_index)
+        letter = enigma.get_letter_at_index(enigma.rotors["left_out"], reflector_output_index)
         index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
 
-        letter = enigma.get_letter_at_index(enigma.rotors["center_ou"], index)
+        letter = enigma.get_letter_at_index(enigma.rotors["center_out"], index)
         index = enigma.get_index_of_letter(enigma.rotors["center_in"], letter)
 
-        letter = enigma.get_letter_at_index(enigma.rotors["right_ou"], index)
+        letter = enigma.get_letter_at_index(enigma.rotors["right_out"], index)
         index = enigma.get_index_of_letter(enigma.rotors["right_in"], letter)
 
         encoded_letter = enigma.get_letter_at_index(enigma.in_out, index)
