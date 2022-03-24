@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from collections import deque
+from sys import exit
 
 
 class ShortEnigma:
@@ -108,20 +109,14 @@ def main():
     enigma = ShortEnigma("ceb")
     enigma.set_key()
 
-    # enigma.right_rotor()
-    # enigma.rotate_right()
-
-    # enigma.input_output()
-    # enigma.right_rotor()
-    # enigma.center_rotor()
-    # enigma.left_rotor()
-    # enigma.show_reflector()
-
     """Going To The Reflector"""
-    # input_letter = "d"
     while True:
+        input_letter = input("Letter [qq to quit]: ")
         enigma.rotate_right()
-        input_letter = input("Letter: ")
+
+        if input_letter.upper() == 'QQ':
+            break
+
         index = enigma.get_index_of_letter(enigma.in_out, input_letter.upper())
 
         # Right rotor
