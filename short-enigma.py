@@ -7,24 +7,24 @@ class ShortEnigma:
     def __init__(self, key):
         self.in_out = deque(['A', 'B', 'C', 'D', 'E', 'F'])
 
-        self.rotor_1_in = deque(['C', 'E', 'D', 'F', 'B', 'A'])
-        self.rotor_1_ou = deque(['A', 'B', 'C', 'D', 'E', 'F'])
+        self.rotor1_in = deque(['C', 'E', 'D', 'F', 'B', 'A'])
+        self.rotor1_out = deque(['A', 'B', 'C', 'D', 'E', 'F'])
 
-        self.rotor_2_in = deque(['F', 'E', 'C', 'A', 'D', 'B'])
-        self.rotor_2_ou = deque(['A', 'B', 'C', 'D', 'E', 'F'])
+        self.rotor2_in = deque(['F', 'E', 'C', 'A', 'D', 'B'])
+        self.rotor2_out = deque(['A', 'B', 'C', 'D', 'E', 'F'])
 
-        self.rotor_3_in = deque(['D', 'A', 'F', 'E', 'C', 'B'])
-        self.rotor_3_ou = deque(['A', 'B', 'C', 'D', 'E', 'F'])
+        self.rotor3_in = deque(['D', 'A', 'F', 'E', 'C', 'B'])
+        self.rotor3_out = deque(['A', 'B', 'C', 'D', 'E', 'F'])
 
         self.reflector = ['K', 'E', 'B', 'E', 'K', 'B']
 
         self.rotors = {
-            "left_in": self.rotor_1_in,
-            "left_ou": self.rotor_1_ou,
-            "center_in": self.rotor_2_in,
-            "center_ou": self.rotor_2_ou,
-            "right_in": self.rotor_3_in,
-            "right_ou": self.rotor_3_ou,
+            "left_in": self.rotor1_in,
+            "left_out": self.rotor1_out,
+            "center_in": self.rotor2_in,
+            "center_out": self.rotor2_out,
+            "right_in": self.rotor3_in,
+            "right_out": self.rotor3_out,
         }
 
         self.key = key.upper()
