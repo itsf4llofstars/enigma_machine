@@ -112,7 +112,13 @@ def main():
     """Going To The Reflector"""
     while True:
         input_letter = input("Letter [qq to quit]: ")
+        # input_letter = input("")
         enigma.rotate_right()
+
+        if enigma.rotors["right_out"][0] == "C":
+            enigma.rotate_center()
+            if enigma.rotors["center_out"][0] == "E":
+                enigma.rotate_left()
 
         if input_letter.upper() == 'QQ':
             break
@@ -156,5 +162,5 @@ def main():
 
 if __name__ == "__main__":
     from os import system
-    system("clear")
+    # system("clear")
     main()
