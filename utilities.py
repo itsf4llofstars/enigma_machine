@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""utilities.py class file"""
+"""utilities.py file"""
 
 
 def main():
