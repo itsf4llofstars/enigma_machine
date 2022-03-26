@@ -178,6 +178,61 @@ def main():
     encoded_letter = enigma.get_letter_at_index(enigma.in_out, index)
     print(f"Input letter: {input_letter} --> Maps to --> Encoded letter: {encoded_letter}")
 
+    input("\nContinue... ")
+
+    while True:
+
+        input_letter = input("Enter a letter [qq to quit]: ")
+
+        if input_letter.upper() == 'QQ':
+            break
+
+        enigma.rotate_right()
+
+        os.system("clear")
+
+        enigma.show_rotor(enigma.in_out)
+        print("\n")
+        enigma.show_rotor(enigma.rotors["right_in"])
+        print()
+        enigma.show_rotor(enigma.rotors["right_out"])
+        print("\n")
+        enigma.show_rotor(enigma.rotors["center_in"])
+        print()
+        enigma.show_rotor(enigma.rotors["center_out"])
+        print("\n")
+        enigma.show_rotor(enigma.rotors["left_in"])
+        print()
+        enigma.show_rotor(enigma.rotors["left_out"])
+        print("\n")
+        enigma.show_rotor(enigma.reflector)
+        print("\n")
+
+        index = enigma.get_index_of_letter(enigma.in_out, input_letter.upper())
+
+        letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
+        index = enigma.get_index_of_letter(enigma.rotors["right_out"], letter)
+
+        letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
+        index = enigma.get_index_of_letter(enigma.rotors["center_out"], letter)
+
+        letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
+        index = enigma.get_index_of_letter(enigma.rotors["left_out"], letter)
+
+        reflector_input_letter = enigma.get_letter_at_index(enigma.reflector, index)
+        reflector_out_index = enigma.get_reflector_ouput_index(reflector_input_letter, index)
+
+        letter = enigma.get_letter_at_index(enigma.rotors["left_out"], reflector_out_index)
+        index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
+
+        letter = enigma.get_letter_at_index(enigma.rotors["center_out"], index)
+        index = enigma.get_index_of_letter(enigma.rotors["center_in"], letter)
+
+        letter = enigma.get_letter_at_index(enigma.rotors["right_out"], index)
+        index = enigma.get_index_of_letter(enigma.rotors["right_in"], letter)
+
+        encoded_letter = enigma.get_letter_at_index(enigma.in_out, index)
+        print(f"Input letter: {input_letter} --> Maps to --> Encoded letter: {encoded_letter}")
 
 
 if __name__ == "__main__":
