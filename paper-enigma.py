@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""Paper Enigma Machine from the Internet.
+This script has not been checked to see if it
+conforms to the example of the paper machine
+form the internet
+"""
 from collections import deque
 
 
