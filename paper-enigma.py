@@ -130,24 +130,21 @@ def main():
     print(f"Input Letter: {letter.upper()} index of input letter: {index}")
 
     letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
-    print(f"Right rotor input letter: {letter} right rotor input index: {index}")
-    # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_out"], letter, index)
-    # index, letter = rotor_out_info
-    # print(f"Right rotor output index: {index}\n")
+    print(f"Right rotor input letter: {letter} Right rotor input index: {index}")
+    index = enigma.get_index_of_letter(enigma.rotors["right_out"], letter)
+    print(f"Right rotor output letter: {letter} index of output letter: {index}")
 
-    # # Operating on the center rotor
-    # letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
-    # print(f"Center rotor input letter: {letter}")
-    # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_out"], letter, index)
-    # index, letter = rotor_out_info
-    # print(f"Center rotor output index: {index}\n")
+    ## Operating on the center rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
+    print(f"Center rotor input letter: {letter} Center rotor input index: {index}")
+    index = enigma.get_index_of_letter(enigma.rotors["center_out"], letter)
+    print(f"Center rotor output letter: {letter} index of output letter: {index}")
 
-    # # Operating on the left rotor
-    # letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
-    # print(f"Left rotor input letter: {letter}")
-    # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_out"], letter, index)
-    # index, letter = rotor_out_info
-    # print(f"Left rotor output index: {index}\n")
+    ## Operating on the left rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
+    print(f"Left rotor input letter: {letter} Left rotor input index: {index}")
+    index = enigma.get_index_of_letter(enigma.rotors["left_out"], letter)
+    print(f"Left rotor output letter: {letter} index of output letter: {index}")
 
 if __name__ == "__main__":
     import os
