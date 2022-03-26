@@ -6,14 +6,14 @@ class PaperEnigma:
     def __init__(self, days_rotors, key):
         self.in_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
 
-        self.rotor_i_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
-        self.rotor_i_in = deque(["E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O", "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J", "E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O", "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J"])
+        self.rotor1_in = deque(["E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O", "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J", "E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O", "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J"])
+        self.rotor1_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
 
-        self.rotor_ii_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
-        self.rotor_ii_in = deque(["A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W", "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E", "A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W", "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E"])
+        self.rotor2_in = deque(["A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W", "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E", "A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W", "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E"])
+        self.rotor2_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
 
-        self.rotor_iii_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
-        self.rotor_iii_in = deque(["B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z", "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O", "B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z", "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O"])
+        self.rotor3_in = deque(["B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z", "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O", "B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z", "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O"])
+        self.rotor3_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
 
         self.reflector = deque(["A", "B", "C", "D", "E", "F", "G", "D", "I", "J", "K", "G", "M", "K", "M", "I", "E", "B", "F", "T", "C", "V", "V", "J", "A", "T"])
 
@@ -30,8 +30,10 @@ class PaperEnigma:
         self.key = key.upper()
 
     def __repr__(self):
-        rotors_string = f"{self.rotors['left_in']}\n{self.rotors['left_out']}\n\n{self.rotors['center_in']}\n{self.rotors['center_out']}\n\n{self.rotors['right_in']}\n{self.rotors['right_out']}"
-        return rotors_string
+        return f'{self.in_out}\n{self.rotors["right_in"]}\n{self.rotors["right_out"]}\n{self.rotors["center_in"]}\n{self.rotors["center_out"]}\n{self.rotors["left_in"]}\n{self.rotors["left_out"]}'
+
+    def show_rotor(self, rotor):
+        [print(letter, end="") for letter in rotor]
 
     def print_left(self):
         print("Left Rotor")
@@ -103,39 +105,49 @@ class PaperEnigma:
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"], 'mck')
+    enigma.show_rotor(enigma.in_out)
     enigma.set_key()
-    enigma.print_right()
 
     enigma.rotate_right()
-    enigma.print_right()
-    enigma.print_center()
-    enigma.print_left()
 
-    print("-" * 80)
+    print("\n")
+    enigma.show_rotor(enigma.rotors["right_in"])
+    print()
+    enigma.show_rotor(enigma.rotors["right_out"])
+    print("\n")
+    enigma.show_rotor(enigma.rotors["center_in"])
+    print()
+    enigma.show_rotor(enigma.rotors["center_out"])
+    print("\n")
+    enigma.show_rotor(enigma.rotors["left_in"])
+    print()
+    enigma.show_rotor(enigma.rotors["left_out"])
+    print("\n")
 
     letter = "e"
+    print(f"User Input Letter: {letter.upper()}")
     index = enigma.get_index_of_letter(enigma.in_out, letter.upper())
-    print(f"Input Letter: {letter.upper()} index: {index}")
+    print(f"Input Letter: {letter.upper()} index of input letter: {index}")
 
     letter = enigma.get_letter_at_index(enigma.rotors["right_in"], index)
-    print(f"Right rotor input letter: {letter}")
-    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_out"], letter, index)
-    index, letter = rotor_out_info
-    print(f"Right rotor output index: {index}\n")
+    print(f"Right rotor input letter: {letter} right rotor input index: {index}")
+    # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["right_out"], letter, index)
+    # index, letter = rotor_out_info
+    # print(f"Right rotor output index: {index}\n")
 
-    # Operating on the center rotor
-    letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
-    print(f"Center rotor input letter: {letter}")
-    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_out"], letter, index)
-    index, letter = rotor_out_info
-    print(f"Center rotor output index: {index}\n")
+    # # Operating on the center rotor
+    # letter = enigma.get_letter_at_index(enigma.rotors["center_in"], index)
+    # print(f"Center rotor input letter: {letter}")
+    # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["center_out"], letter, index)
+    # index, letter = rotor_out_info
+    # print(f"Center rotor output index: {index}\n")
 
-    # Operating on the left rotor
-    letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
-    print(f"Left rotor input letter: {letter}")
-    rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_out"], letter, index)
-    index, letter = rotor_out_info
-    print(f"Left rotor output index: {index}\n")
+    # # Operating on the left rotor
+    # letter = enigma.get_letter_at_index(enigma.rotors["left_in"], index)
+    # print(f"Left rotor input letter: {letter}")
+    # rotor_out_info = enigma.find_rotor_out_info(enigma.rotors["left_out"], letter, index)
+    # index, letter = rotor_out_info
+    # print(f"Left rotor output index: {index}\n")
 
 if __name__ == "__main__":
     import os
