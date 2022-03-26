@@ -29,9 +29,6 @@ class PaperEnigma:
         self.days_rotors = days_rotors
         self.key = key.upper()
 
-    def __repr__(self):
-        return f'{self.in_out}\n{self.rotors["right_in"]}\n{self.rotors["right_out"]}\n{self.rotors["center_in"]}\n{self.rotors["center_out"]}\n{self.rotors["left_in"]}\n{self.rotors["left_out"]}'
-
     def show_rotor(self, rotor):
         [print(letter, end="") for letter in rotor]
 
@@ -139,6 +136,8 @@ def main():
     print(f"Left rotor input letter: {letter} Left rotor input index: {index}")
     index = enigma.get_index_of_letter(enigma.rotors["left_out"], letter)
     print(f"Left rotor output letter: {letter} index of output letter: {index}")
+
+    ## Reflector
 
 if __name__ == "__main__":
     import os
