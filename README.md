@@ -1,6 +1,6 @@
 # The Enigma Machine
 
-## A simulator of the German Enigma Mahcine of WWII.
+## A simulator of the German Enigma Mahcine of WWII
 
 This is in developmeant an in no way can a user excpect theses scripts to act<br>
 or encode in the same way or manner as a real Enigma Macine does. Any text<br>
