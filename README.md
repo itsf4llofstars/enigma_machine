@@ -65,7 +65,7 @@ to copy and paste them into the code at this time.
 
 This will begin with a loosley based operation of the German Enigma Machine.
 
-#### Order of Operation
+### Order of Operation
 
 + Get input letter, and index of input letter. (H).
 + Map input letter to input of rotor.
