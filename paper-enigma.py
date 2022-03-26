@@ -93,6 +93,14 @@ class PaperEnigma:
     def get_letter_at_index(self, rotor, index):
         return rotor[index]
 
+    def get_reflector_ouput_index(self, letter, index):
+        index = (1 + index) % len(self.reflector)
+        while self.reflector[index] != letter:
+            index = (1 + index) % len(self.reflector)
+        return index
+
+
+
 
 def main():
     enigma = PaperEnigma(["I", "II", "III"], 'mck')
@@ -113,6 +121,8 @@ def main():
     enigma.show_rotor(enigma.rotors["left_in"])
     print()
     enigma.show_rotor(enigma.rotors["left_out"])
+    print("\n")
+    enigma.show_rotor(enigma.reflector)
     print("\n")
 
     letter = "e"
@@ -138,6 +148,11 @@ def main():
     print(f"Left rotor output letter: {letter} index of output letter: {index}")
 
     ## Reflector
+    reflector_input_letter = enigma.get_letter_at_index(enigma.reflector, index)
+    print(f"Reflector input letter: {reflector_input_letter} Reflector input index: {index}")
+    reflector_out_index = enigma.get_reflector_ouput_index(reflector_input_letter, index)
+    print(f"Reflector output letter: {reflector_input_letter} Reflector output index: {reflector_out_index}")
+
 
 if __name__ == "__main__":
     import os
