@@ -1,6 +1,20 @@
 # The Enigma Machine
 
-A simulator of the German Enigma Mahcine of WWII.<br>
+## A simulator of the German Enigma Mahcine of WWII.
+
+This is in developmeant an in no way can a user excpect theses scripts to act<br>
+or encode in the same way or manner as a real Enigma Macine does. Any text<br>
+encoded using these scripts can NOT be considered safe, secure or free from<br>
+code breaking from another user or entity. This set of files are not be be<br>
+considered as a secure way of encoding text, this is for entertainment purposes<br>
+only. Thank you.<br>
+
+User and visitors of this repository are encourage to send me feedback and<br>
+submit their own pull requests. I am new to processing pull request so it may<br>
+take me a few days to process them.
+
+Note: The code files here do not have any documentation as of yet.<br>
+I apologize for any confusion this causes. This is a work in progress.
 
 ## Paper Enigma
 
@@ -37,6 +51,15 @@ going on with the machine and code.
 ## Enigma Machine
 
 The enigma.py (Enigma Machine proper) is still in development.
+
+## Build Your Own Random Rotors
+
+The build-rotors.py script will build 5 random, 26 non-repeating,<br>
+lettered lists and write them to a text file named rotors.txt.<br>
+
+You can now use these rotors in your own Enigma Machine. You will be required<br>
+to copy and paste them into the code at this time.
+
 <br><br>
 ## Operation Notes As a Reminder to itsf4llofstars
 
