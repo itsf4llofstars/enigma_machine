@@ -54,16 +54,26 @@ The enigma.py (Enigma Machine proper) is still in development.
 
 ## Build Your Own Random Rotors
 
-The build-rotors.py script will build 5 random, 26 non-repeating,<br>
-lettered lists and write them to a text file named rotors.txt.<br>
+The build-rotors.py script will build 5 rotors consisting of 26 non-repeating<br>
+randomized letters and write them to a text file named rotors.txt in the<br>
+working directory<br>
 
-You can now use these rotors in your own Enigma Machine. You will be required<br>
-to copy and paste them into the code at this time.
+You can now use these rotors in your own Enigma Machine. You will need to copy<br>
+and paste them into the code yourself.<br>
+
+**NOTE: ADD WHERE TO PLACE THE CREATED ROTOR LISTS IN THE enigma.py CLASS FILE**<br>
+
+Run the script by:
+
+> $ python3 build-rotors.py
 
 <br><br>
 ## Operation Notes As a Reminder to itsf4llofstars
 
-This will begin with a loosley based operation of the German Enigma Machine.
+The below notes are for the author, they may not be readalbe or clear to others, please see<br>
+script documentation if available.<br>
+
+This will begin with a loosley based operation of the German Enigma Machine.<br>
 
 ### Order of Operation
 
