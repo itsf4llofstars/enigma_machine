@@ -48,12 +48,12 @@ def build_reflector(reflector_list):
             reflector_list.append(reflector_letter)
     
     index = 0
-    while index < 26:
+    while len(reflector_list) < 26:
         reflector_list.append(reflector_list[index])
         index += 1
 
 
-def shuffle_rotor(rotor, n=17576):
+def shuffle_rotor(rotor, n=456976):  # 17567 456976
     for _ in range(n):
         random.shuffle(rotor)
 
