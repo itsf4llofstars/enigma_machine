@@ -37,6 +37,17 @@ def build_rotor(rotor_list):
             rotor_list.append(rotor_letter)
 
 
+def build_reflector(reflector_list):
+    letter_list = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    ]
+    while len(reflector_list) < 13:
+        reflector_letter = random.choice(letter_list)
+        if reflector_letter not in reflector_list:
+            reflector_list.append(reflector_letter)
+
+
 def shuffle_rotor(rotor, n=17576):
     for _ in range(n):
         random.shuffle(rotor)
