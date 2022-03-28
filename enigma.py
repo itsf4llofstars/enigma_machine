@@ -23,6 +23,8 @@ This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 """
 
+from collections import deque
+
 
 class Enigma:
     """Class model of the German Enigma Test Encoding machine
@@ -30,13 +32,19 @@ class Enigma:
     def __init__(self, rotors, key) -> None:
         self.keyboard = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
 
+        self.rotorI = ['V', 'Z', 'W', 'O', 'G', 'B', 'Y', 'H', 'M', 'L', 'D', 'I', 'J', 'U', 'P', 'R', 'X', 'C', 'E', 'A', 'N', 'K', 'F', 'Q', 'T', 'S']
+        self.rotorII = ['D', 'T', 'H', 'A', 'B', 'P', 'O', 'J', 'M', 'I', 'W', 'L', 'E', 'N', 'V', 'U', 'Z', 'F', 'S', 'K', 'Q', 'X', 'Y', 'R', 'C', 'G']
+        self.rotorIII = ['E', 'M', 'L', 'G', 'V', 'Q', 'C', 'Z', 'K', 'I', 'H', 'P', 'D', 'X', 'T', 'R', 'F', 'S', 'A', 'J', 'W', 'O', 'N', 'Y', 'B', 'U']
+        self.rotorIV = ['E', 'K', 'V', 'O', 'T', 'H', 'L', 'M', 'S', 'D', 'P', 'Z', 'Q', 'C', 'J', 'R', 'B', 'N', 'F', 'U', 'Y', 'A', 'X', 'G', 'W', 'I']
+        self.rotorV = ['J', 'H', 'L', 'F', 'O', 'W', 'R', 'A', 'E', 'M', 'G', 'S', 'Y', 'N', 'X', 'P', 'U', 'T', 'V', 'B', 'I', 'D', 'Z', 'Q', 'C', 'K']
+
         self.rotors = {
-            "right_input": [],
-            "right_output": [],
-            "cener_input": [],
-            "cener_output": [],
-            "left_input": [],
-            "left_output": [],
+            "right_input": deque([]),
+            "right_output": deque([]),
+            "cener_input": deque([]),
+            "cener_output": deque([]),
+            "left_input": deque([]),
+            "left_output": deque([]),
         }
 
         self.reflectorB = []
