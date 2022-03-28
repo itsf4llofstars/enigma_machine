@@ -84,6 +84,8 @@ def main():
     write_rotor_file(rotor_iv)
     write_rotor_file(rotor_v)
 
+    print("New Rotors built")
+
     # print(rotor_i)
     # print(rotor_ii)
     # print(rotor_iii)
