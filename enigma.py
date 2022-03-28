@@ -32,23 +32,23 @@ class Enigma:
     def __init__(self, rotors, key) -> None:
         self.keyboard = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
 
-        self.rotorI = ['V', 'Z', 'W', 'O', 'G', 'B', 'Y', 'H', 'M', 'L', 'D', 'I', 'J', 'U', 'P', 'R', 'X', 'C', 'E', 'A', 'N', 'K', 'F', 'Q', 'T', 'S']
-        self.rotorII = ['D', 'T', 'H', 'A', 'B', 'P', 'O', 'J', 'M', 'I', 'W', 'L', 'E', 'N', 'V', 'U', 'Z', 'F', 'S', 'K', 'Q', 'X', 'Y', 'R', 'C', 'G']
-        self.rotorIII = ['E', 'M', 'L', 'G', 'V', 'Q', 'C', 'Z', 'K', 'I', 'H', 'P', 'D', 'X', 'T', 'R', 'F', 'S', 'A', 'J', 'W', 'O', 'N', 'Y', 'B', 'U']
-        self.rotorIV = ['E', 'K', 'V', 'O', 'T', 'H', 'L', 'M', 'S', 'D', 'P', 'Z', 'Q', 'C', 'J', 'R', 'B', 'N', 'F', 'U', 'Y', 'A', 'X', 'G', 'W', 'I']
-        self.rotorV = ['J', 'H', 'L', 'F', 'O', 'W', 'R', 'A', 'E', 'M', 'G', 'S', 'Y', 'N', 'X', 'P', 'U', 'T', 'V', 'B', 'I', 'D', 'Z', 'Q', 'C', 'K']
+        self.rotor1 = deque(["U", "L", "R", "X", "C", "Q", "O", "K", "G", "N", "J", "A", "F", "I", "H", "Z", "W", "S", "E", "Y", "M", "P", "D", "T", "B", "V"])
+        self.rotor1 = deque(["Y", "T", "K", "F", "J", "M", "D", "Q", "C", "H", "X", "R", "P", "E", "L", "W", "Z", "N", "V", "I", "S", "O", "G", "B", "U", "A"])
+        self.rotor1 = deque(["P", "X", "E", "Z", "B", "W", "Y", "L", "F", "G", "U", "C", "D", "S", "I", "R", "J", "O", "M", "A", "K", "H", "T", "N", "V", "Q"])
+        self.rotor1 = deque(["R", "P", "X", "G", "K", "S", "B", "Y", "E", "C", "J", "I", "H", "U", "T", "N", "D", "M", "F", "Q", "A", "V", "L", "Z", "O", "W"])
+        self.rotor1 = deque(["S", "M", "I", "R", "X", "P", "J", "U", "O", "A", "V", "D", "Q", "F", "L", "C", "Z", "K", "T", "W", "G", "E", "N", "B", "H", "Y"])
 
         self.rotors = {
-            "right_input": deque([]),
+            "right_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
             "right_output": deque([]),
-            "cener_input": deque([]),
+            "cener_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
             "cener_output": deque([]),
-            "left_input": deque([]),
+            "left_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
             "left_output": deque([]),
         }
 
-        self.reflectorB = []
-        self.reflectorC = []
+        self.reflectorB = ["F", "B", "A", "V", "B", "A", "T", "Q", "K", "P", "H", "F", "T", "U", "Q", "P", "J", "X", "J", "K", "V", "X", "Y", "U", "H", "Y"]
+        self.reflectorC = ["E", "W", "Z", "F", "N", "W", "Q", "O", "E", "Z", "Y", "K", "V", "D", "L", "R", "D", "K", "N", "O", "Q", "V", "Y", "R", "F", "L"]
 
 def main():
     pass
