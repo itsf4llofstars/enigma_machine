@@ -75,7 +75,7 @@ def main():
     shuffle_rotor(rotor_iv, 1)
     shuffle_rotor(rotor_v, 1)
 
-    filepath = "path_to_file"
+    filepath = "rotors.txt"  # Should be in the working directory
     check_for_rotor_file(filepath)
 
     write_rotor_file(rotor_i)
