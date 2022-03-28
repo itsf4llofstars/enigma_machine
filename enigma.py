@@ -25,8 +25,22 @@ under certain conditions; type `show c' for details.
 
 
 class Enigma:
-    pass
+    """Class model of the German Enigma Test Encoding machine
+    """
+    def __init__(self, rotors, key) -> None:
+        self.keyboard = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
 
+        self.rotors = {
+            "right_input": [],
+            "right_output": [],
+            "cener_input": [],
+            "cener_output": [],
+            "left_input": [],
+            "left_output": [],
+        }
+
+        self.reflectorB = []
+        self.reflectorC = []
 
 def main():
     pass
