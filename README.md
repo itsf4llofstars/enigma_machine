@@ -63,7 +63,6 @@ and paste them into the code yourself.<br>
 
 **NOTE: ADD WHERE TO PLACE THE CREATED ROTOR LISTS IN THE enigma.py CLASS FILE**<br>
 
-
 Run the script by:
 
 > $ python3 build-rotors.py
