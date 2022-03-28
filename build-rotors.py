@@ -46,6 +46,11 @@ def build_reflector(reflector_list):
         reflector_letter = random.choice(letter_list)
         if reflector_letter not in reflector_list:
             reflector_list.append(reflector_letter)
+    
+    index = 0
+    while index < 26:
+        reflector_list.append(reflector_list[index])
+        index += 1
 
 
 def shuffle_rotor(rotor, n=17576):
