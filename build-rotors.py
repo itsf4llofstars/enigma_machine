@@ -53,7 +53,7 @@ def build_reflector(reflector_list):
         index += 1
 
 
-def shuffle_rotor(rotor, n=456976):  # 17567 456976
+def shuffle_rotor(rotor, n=17567):
     for _ in range(n):
         random.shuffle(rotor)
 
