@@ -89,8 +89,8 @@ class Enigma:
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
 
-    def get_letter_at_index():
-        pass
+    def get_letter_at_index(self, rotor, index):
+        return rotor[index]
 
 
 def main():
