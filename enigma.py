@@ -96,6 +96,28 @@ class Enigma:
 def main():
     enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
 
+    print("\n")
+    [print(letter, end=" ") for letter in enigma.keyboard]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.keyboard]
+    print()
+    [print(letter, end=" ") for letter in enigma.stored_rotors["I"]]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.keyboard]
+    print()
+    [print(letter, end=" ") for letter in enigma.stored_rotors["II"]]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.keyboard]
+    print()
+    [print(letter, end=" ") for letter in enigma.stored_rotors["III"]]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.reflectorB]
+    print("\n")
+
 
 if __name__ == "__main__":
     main()
