@@ -29,7 +29,7 @@ from collections import deque
 class Enigma:
     """Class model of the German Enigma Test Encoding machine
     """
-    def __init__(self, rotors, rings: str, key: str) -> None:
+    def __init__(self, selected_rotors, rings: str, key: str) -> None:
         self.keyboard = deque([
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
@@ -74,6 +74,7 @@ class Enigma:
             "left_output": deque([]),
         }
 
+        self.selected_rotors = selected_rotors
         self.reflectorB = [
             "F", "B", "A", "V", "B", "A", "T", "Q", "K", "P", "H", "F", "T",
             "U", "Q", "P", "J", "X", "J", "K", "V", "X", "Y", "U", "H", "Y"
@@ -85,6 +86,9 @@ class Enigma:
 
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
+    
+    def set_rotors(self):
+        self.rotors["right_output"] = self.stored_rotors[self.selected_rotors]
     
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
@@ -100,19 +104,19 @@ def main():
     [print(letter, end=" ") for letter in enigma.keyboard]
     print("\n")
 
-    [print(letter, end=" ") for letter in enigma.keyboard]
+    [print(letter, end=" ") for letter in enigma.rotors["right_input"]]
     print()
-    [print(letter, end=" ") for letter in enigma.stored_rotors["I"]]
+    [print(letter, end=" ") for letter in enigma.rotors["right_output"]]
     print("\n")
 
-    [print(letter, end=" ") for letter in enigma.keyboard]
+    [print(letter, end=" ") for letter in enigma.rotors["center_input"]]
     print()
-    [print(letter, end=" ") for letter in enigma.stored_rotors["II"]]
+    [print(letter, end=" ") for letter in enigma.rotors["center_output"]]
     print("\n")
 
-    [print(letter, end=" ") for letter in enigma.keyboard]
+    [print(letter, end=" ") for letter in enigma.rotors["left_input"]]
     print()
-    [print(letter, end=" ") for letter in enigma.stored_rotors["III"]]
+    [print(letter, end=" ") for letter in enigma.rotors["left_output"]]
     print("\n")
 
     [print(letter, end=" ") for letter in enigma.reflectorB]
