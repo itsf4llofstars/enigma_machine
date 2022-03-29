@@ -86,8 +86,8 @@ class Enigma:
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
     
-    def get_index_of_letter():
-        pass
+    def get_index_of_letter(self, rotor, letter):
+        return rotor.index(letter)
 
     def get_letter_at_index():
         pass
