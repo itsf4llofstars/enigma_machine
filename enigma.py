@@ -67,11 +67,8 @@ class Enigma:
 
         self.rotors = {
             "right_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "right_output": deque([]),
             "cener_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "cener_output": deque([]),
             "left_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "left_output": deque([]),
         }
 
         self.selected_rotors = selected_rotors
@@ -88,7 +85,9 @@ class Enigma:
         self.key_setting = key.upper()
     
     def set_rotors(self):
-        self.rotors["right_output"] = self.stored_rotors[self.selected_rotors]
+        self.rotors["right_output"] = self.stored_rotors[self.selected_rotors[0]]
+        self.rotors["center_output"] = self.stored_rotors[self.selected_rotors[1]]
+        self.rotors["left_output"] = self.stored_rotors[self.selected_rotors[2]]
     
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
@@ -99,6 +98,7 @@ class Enigma:
 
 def main():
     enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
+    enigma.set_rotors()
 
     print("\n")
     [print(letter, end=" ") for letter in enigma.keyboard]
@@ -124,4 +124,5 @@ def main():
 
 
 if __name__ == "__main__":
+    import sys
     main()
