@@ -67,7 +67,7 @@ class Enigma:
 
         self.rotors = {
             "right_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "cener_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
+            "center_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
             "left_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
         }
 
@@ -88,6 +88,12 @@ class Enigma:
         self.rotors["right_output"] = self.stored_rotors[self.selected_rotors[0]]
         self.rotors["center_output"] = self.stored_rotors[self.selected_rotors[1]]
         self.rotors["left_output"] = self.stored_rotors[self.selected_rotors[2]]
+
+    def set_rings(self):
+        pass
+
+    def set_key(self):
+        pass
     
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
