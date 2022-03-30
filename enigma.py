@@ -121,9 +121,16 @@ class Enigma:
         while self.rotors["left_output"][0] != self.ring_setting[2]:
             deque.rotate(self.rotors["left_output"], -1)
 
-
     def set_key(self):
-        pass
+        while self.rotors["right_input"][0] != self.key_setting[0]:
+            deque.rotate(self.rotors["right_input"], -1)
+            deque.rotate(self.rotors["right_output"], -1)
+        while self.rotors["center_input"][0] != self.key_setting[1]:
+            deque.rotate(self.rotors["center_input"], -1)
+            deque.rotate(self.rotors["center_output"], -1)
+        while self.rotors["left_input"][0] != self.key_setting[2]:
+            deque.rotate(self.rotors["left_input"], -1)
+            deque.rotate(self.rotors["left_output"], -1)
 
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
@@ -133,9 +140,11 @@ class Enigma:
 
 
 def main():
+    # The below four calls must remain in this order
     enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
     enigma.set_rotors()
     enigma.set_rings()
+    enigma.set_key()
 
     print("\n")
     [print(letter, end=" ") for letter in enigma.keyboard]
