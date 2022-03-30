@@ -58,20 +58,43 @@ class Enigma:
         ])
 
         self.stored_rotors = {
-            "I": deque(["U", "L", "R", "X", "C", "Q", "O", "K", "G", "N", "J", "A", "F", "I", "H", "Z", "W", "S", "E", "Y", "M", "P", "D", "T", "B", "V"]),
-            "II": deque(["Y", "T", "K", "F", "J", "M", "D", "Q", "C", "H", "X", "R", "P", "E", "L", "W", "Z", "N", "V", "I", "S", "O", "G", "B", "U", "A"]),
-            "III": deque(["P", "X", "E", "Z", "B", "W", "Y", "L", "F", "G", "U", "C", "D", "S", "I", "R", "J", "O", "M", "A", "K", "H", "T", "N", "V", "Q"]),
-            "IV": deque(["R", "P", "X", "G", "K", "S", "B", "Y", "E", "C", "J", "I", "H", "U", "T", "N", "D", "M", "F", "Q", "A", "V", "L", "Z", "O", "W"]),
-            "V": deque(["S", "M", "I", "R", "X", "P", "J", "U", "O", "A", "V", "D", "Q", "F", "L", "C", "Z", "K", "T", "W", "G", "E", "N", "B", "H", "Y"]),
+            "I": deque([
+                "U", "L", "R", "X", "C", "Q", "O", "K", "G", "N", "J", "A", "F",
+                "I", "H", "Z", "W", "S", "E", "Y", "M", "P", "D", "T", "B", "V"
+            ]),
+            "II": deque([
+                "Y", "T", "K", "F", "J", "M", "D", "Q", "C", "H", "X", "R", "P",
+                "E", "L", "W", "Z", "N", "V", "I", "S", "O", "G", "B", "U", "A"
+            ]),
+            "III": deque([
+                "P", "X", "E", "Z", "B", "W", "Y", "L", "F", "G", "U", "C", "D",
+                "S", "I", "R", "J", "O", "M", "A", "K", "H", "T", "N", "V", "Q"
+            ]),
+            "IV": deque([
+                "R", "P", "X", "G", "K", "S", "B", "Y", "E", "C", "J", "I", "H",
+                "U", "T", "N", "D", "M", "F", "Q", "A", "V", "L", "Z", "O", "W"
+            ]),
+            "V": deque([
+                "S", "M", "I", "R", "X", "P", "J", "U", "O", "A", "V", "D", "Q",
+                "F", "L", "C", "Z", "K", "T", "W", "G", "E", "N", "B", "H", "Y"
+            ]),
         }
 
         self.rotors = {
-            "right_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "center_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "left_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
+            "right_input": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
+            "center_input": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
+            "left_input": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
         }
 
-        self.selected_rotors = selected_rotors
         self.reflectorB = [
             "F", "B", "A", "V", "B", "A", "T", "Q", "K", "P", "H", "F", "T",
             "U", "Q", "P", "J", "X", "J", "K", "V", "X", "Y", "U", "H", "Y"
@@ -81,20 +104,34 @@ class Enigma:
             "D", "L", "R", "D", "K", "N", "O", "Q", "V", "Y", "R", "F", "L"
         ]
 
+        self.selected_rotors = selected_rotors
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
-    
+
     def set_rotors(self):
         self.rotors["right_output"] = self.stored_rotors[self.selected_rotors[0]]
         self.rotors["center_output"] = self.stored_rotors[self.selected_rotors[1]]
         self.rotors["left_output"] = self.stored_rotors[self.selected_rotors[2]]
 
     def set_rings(self):
-        pass
+        while self.rotors["right_output"][0] != self.ring_setting[0]:
+            deque.rotate(self.rotors["right_output"], -1)
+        while self.rotors["center_output"][0] != self.ring_setting[1]:
+            deque.rotate(self.rotors["center_output"], -1)
+        while self.rotors["left_output"][0] != self.ring_setting[2]:
+            deque.rotate(self.rotors["left_output"], -1)
 
     def set_key(self):
-        pass
-    
+        while self.rotors["right_input"][0] != self.key_setting[0]:
+            deque.rotate(self.rotors["right_input"], -1)
+            deque.rotate(self.rotors["right_output"], -1)
+        while self.rotors["center_input"][0] != self.key_setting[1]:
+            deque.rotate(self.rotors["center_input"], -1)
+            deque.rotate(self.rotors["center_output"], -1)
+        while self.rotors["left_input"][0] != self.key_setting[2]:
+            deque.rotate(self.rotors["left_input"], -1)
+            deque.rotate(self.rotors["left_output"], -1)
+
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
 
@@ -103,8 +140,11 @@ class Enigma:
 
 
 def main():
+    # The below four calls must remain in this order
     enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
     enigma.set_rotors()
+    enigma.set_rings()
+    enigma.set_key()
 
     print("\n")
     [print(letter, end=" ") for letter in enigma.keyboard]
