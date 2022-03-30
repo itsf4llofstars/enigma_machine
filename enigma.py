@@ -115,11 +115,11 @@ class Enigma:
 
     def set_rings(self):
         while self.rotors["right_output"][0] != self.ring_setting[0]:
-            deque.rotate(self.set_rotors["right_output"], -1)
+            deque.rotate(self.rotors["right_output"], -1)
         while self.rotors["center_output"][0] != self.ring_setting[1]:
-            deque.rotate(self.set_rotors["center_output"], -1)
+            deque.rotate(self.rotors["center_output"], -1)
         while self.rotors["left_output"][0] != self.ring_setting[2]:
-            deque.rotate(self.set_rotors["left_output"], -1)
+            deque.rotate(self.rotors["left_output"], -1)
 
 
     def set_key(self):
@@ -135,6 +135,7 @@ class Enigma:
 def main():
     enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
     enigma.set_rotors()
+    enigma.set_rings()
 
     print("\n")
     [print(letter, end=" ") for letter in enigma.keyboard]
