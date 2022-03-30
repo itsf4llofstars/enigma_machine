@@ -114,7 +114,13 @@ class Enigma:
         self.rotors["left_output"] = self.stored_rotors[self.selected_rotors[2]]
 
     def set_rings(self):
-        pass
+        while self.rotors["right_output"][0] != self.ring_setting[0]:
+            deque.rotate(self.set_rotors["right_output"], -1)
+        while self.rotors["center_output"][0] != self.ring_setting[1]:
+            deque.rotate(self.set_rotors["center_output"], -1)
+        while self.rotors["left_output"][0] != self.ring_setting[2]:
+            deque.rotate(self.set_rotors["left_output"], -1)
+
 
     def set_key(self):
         pass
