@@ -29,7 +29,7 @@ from collections import deque
 class Enigma:
     """Class model of the German Enigma Test Encoding machine
     """
-    def __init__(self, rotors, rings: str, key: str) -> None:
+    def __init__(self, selected_rotors, rings: str, key: str) -> None:
         self.keyboard = deque([
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
@@ -67,11 +67,8 @@ class Enigma:
 
         self.rotors = {
             "right_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "right_output": deque([]),
-            "cener_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "cener_output": deque([]),
+            "center_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
             "left_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "left_output": deque([]),
         }
 
         self.reflectorB = [
@@ -83,19 +80,55 @@ class Enigma:
             "D", "L", "R", "D", "K", "N", "O", "Q", "V", "Y", "R", "F", "L"
         ]
 
+        self.selected_rotors = selected_rotors
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
-    
-    def get_index_of_letter():
+
+    def set_rotors(self):
+        self.rotors["right_output"] = self.stored_rotors[self.selected_rotors[0]]
+        self.rotors["center_output"] = self.stored_rotors[self.selected_rotors[1]]
+        self.rotors["left_output"] = self.stored_rotors[self.selected_rotors[2]]
+
+    def set_rings(self):
         pass
 
-    def get_letter_at_index():
+    def set_key(self):
         pass
+
+    def get_index_of_letter(self, rotor, letter):
+        return rotor.index(letter)
+
+    def get_letter_at_index(self, rotor, index):
+        return rotor[index]
 
 
 def main():
     enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
+    enigma.set_rotors()
+
+    print("\n")
+    [print(letter, end=" ") for letter in enigma.keyboard]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.rotors["right_input"]]
+    print()
+    [print(letter, end=" ") for letter in enigma.rotors["right_output"]]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.rotors["center_input"]]
+    print()
+    [print(letter, end=" ") for letter in enigma.rotors["center_output"]]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.rotors["left_input"]]
+    print()
+    [print(letter, end=" ") for letter in enigma.rotors["left_output"]]
+    print("\n")
+
+    [print(letter, end=" ") for letter in enigma.reflectorB]
+    print("\n")
 
 
 if __name__ == "__main__":
+    import sys
     main()
