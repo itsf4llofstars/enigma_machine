@@ -58,17 +58,41 @@ class Enigma:
         ])
 
         self.stored_rotors = {
-            "I": deque(["U", "L", "R", "X", "C", "Q", "O", "K", "G", "N", "J", "A", "F", "I", "H", "Z", "W", "S", "E", "Y", "M", "P", "D", "T", "B", "V"]),
-            "II": deque(["Y", "T", "K", "F", "J", "M", "D", "Q", "C", "H", "X", "R", "P", "E", "L", "W", "Z", "N", "V", "I", "S", "O", "G", "B", "U", "A"]),
-            "III": deque(["P", "X", "E", "Z", "B", "W", "Y", "L", "F", "G", "U", "C", "D", "S", "I", "R", "J", "O", "M", "A", "K", "H", "T", "N", "V", "Q"]),
-            "IV": deque(["R", "P", "X", "G", "K", "S", "B", "Y", "E", "C", "J", "I", "H", "U", "T", "N", "D", "M", "F", "Q", "A", "V", "L", "Z", "O", "W"]),
-            "V": deque(["S", "M", "I", "R", "X", "P", "J", "U", "O", "A", "V", "D", "Q", "F", "L", "C", "Z", "K", "T", "W", "G", "E", "N", "B", "H", "Y"]),
+            "I": deque([
+                "U", "L", "R", "X", "C", "Q", "O", "K", "G", "N", "J", "A", "F",
+                "I", "H", "Z", "W", "S", "E", "Y", "M", "P", "D", "T", "B", "V"
+            ]),
+            "II": deque([
+                "Y", "T", "K", "F", "J", "M", "D", "Q", "C", "H", "X", "R", "P",
+                "E", "L", "W", "Z", "N", "V", "I", "S", "O", "G", "B", "U", "A"
+            ]),
+            "III": deque([
+                "P", "X", "E", "Z", "B", "W", "Y", "L", "F", "G", "U", "C", "D",
+                "S", "I", "R", "J", "O", "M", "A", "K", "H", "T", "N", "V", "Q"
+            ]),
+            "IV": deque([
+                "R", "P", "X", "G", "K", "S", "B", "Y", "E", "C", "J", "I", "H",
+                "U", "T", "N", "D", "M", "F", "Q", "A", "V", "L", "Z", "O", "W"
+            ]),
+            "V": deque([
+                "S", "M", "I", "R", "X", "P", "J", "U", "O", "A", "V", "D", "Q",
+                "F", "L", "C", "Z", "K", "T", "W", "G", "E", "N", "B", "H", "Y"
+            ]),
         }
 
         self.rotors = {
-            "right_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "center_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "left_input": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
+            "right_input": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
+            "center_input": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
+            "left_input": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
         }
 
         self.reflectorB = [
