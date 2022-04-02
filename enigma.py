@@ -158,6 +158,18 @@ class Enigma:
             deque.rotate(self.rotors["left_input"], -1)
             deque.rotate(self.rotors["left_output"], -1)
 
+    def rotate_rotor_right(self):
+        deque.rotate(self.rotors["right_input"], -1)
+        deque.rotate(self.rotors["right_output"], -1)
+
+    def rotate_rotor_center(self):
+        deque.rotate(self.rotors["center_input"], -1)
+        deque.rotate(self.rotors["center_output"], -1)
+
+    def rotate_rotor_left(self):
+        deque.rotate(self.rotors["left_input"], -1)
+        deque.rotate(self.rotors["left_output"], -1)
+
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
 
@@ -173,6 +185,12 @@ def main():
     enigma.set_key()
 
     enigma.show_rotors()
+
+    user_input_letter = "D"
+
+    index = enigma.get_index_of_letter(enigma.keyboard, user_input_letter)
+    letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
+    print(f"{index = } Letter: {letter = }")
 
 
 if __name__ == "__main__":
