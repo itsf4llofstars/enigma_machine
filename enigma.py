@@ -179,6 +179,12 @@ class Enigma:
     def get_rotor_output_index(self, rotor, letter):
         return rotor.index(letter)
 
+    def get_reflector_out_index(self, reflector, index, letter):
+        index = (1 + index) % len(reflector)
+        while reflector[index] != letter:
+            index = (1 + index) % len(reflector)
+        return index
+
 
 def main():
     # The below four calls must remain in this order
@@ -211,6 +217,11 @@ def main():
     letter = enigma.get_letter_at_index(enigma.rotors["left_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["left_output"], letter)
     print(f"{index = } {letter = }")
+
+    # Reflector
+    reflector_in_letter = enigma.get_letter_at_index(enigma.reflectorB, index)
+    reflector_out_index = enigma.get_reflector_out_index(enigma.reflectorB, index, reflector_in_letter)
+    print(f"{reflector_in_letter = } {reflector_out_index = }")
 
 
 if __name__ == "__main__":
