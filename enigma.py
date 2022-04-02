@@ -25,6 +25,8 @@ under certain conditions; type `show c' for details.
 
 from collections import deque
 
+# TODO: Set reflector attribute in class init
+
 
 class Enigma:
     """Class model of the German Enigma Test Encoding machine
@@ -108,6 +110,30 @@ class Enigma:
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
 
+    def show_rotors(self):
+        print("\n")
+        [print(letter, end=" ") for letter in self.keyboard]
+        print("\n")
+
+        [print(letter, end=" ") for letter in self.rotors["right_input"]]
+        print()
+        [print(letter, end=" ") for letter in self.rotors["right_output"]]
+        print("\n")
+
+        [print(letter, end=" ") for letter in self.rotors["center_input"]]
+        print()
+        [print(letter, end=" ") for letter in self.rotors["center_output"]]
+        print("\n")
+
+        [print(letter, end=" ") for letter in self.rotors["left_input"]]
+        print()
+        [print(letter, end=" ") for letter in self.rotors["left_output"]]
+        print("\n")
+
+        # TODO: This will need to be changed to the reflector in use
+        [print(letter, end=" ") for letter in self.reflectorB]
+        print("\n")
+
     def set_rotors(self):
         self.rotors["right_output"] = self.stored_rotors[self.selected_rotors[0]]
         self.rotors["center_output"] = self.stored_rotors[self.selected_rotors[1]]
@@ -141,32 +167,12 @@ class Enigma:
 
 def main():
     # The below four calls must remain in this order
-    enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
+    enigma = Enigma(["I", "II", "III"], "UGE", "WMT")
     enigma.set_rotors()
     enigma.set_rings()
     enigma.set_key()
 
-    print("\n")
-    [print(letter, end=" ") for letter in enigma.keyboard]
-    print("\n")
-
-    [print(letter, end=" ") for letter in enigma.rotors["right_input"]]
-    print()
-    [print(letter, end=" ") for letter in enigma.rotors["right_output"]]
-    print("\n")
-
-    [print(letter, end=" ") for letter in enigma.rotors["center_input"]]
-    print()
-    [print(letter, end=" ") for letter in enigma.rotors["center_output"]]
-    print("\n")
-
-    [print(letter, end=" ") for letter in enigma.rotors["left_input"]]
-    print()
-    [print(letter, end=" ") for letter in enigma.rotors["left_output"]]
-    print("\n")
-
-    [print(letter, end=" ") for letter in enigma.reflectorB]
-    print("\n")
+    enigma.show_rotors()
 
 
 if __name__ == "__main__":
