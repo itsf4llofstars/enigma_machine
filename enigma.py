@@ -176,10 +176,13 @@ class Enigma:
     def get_letter_at_index(self, rotor, index):
         return rotor[index]
 
+    def get_rotor_output_index(self, rotor, letter):
+        return rotor.index(letter)
+
 
 def main():
     # The below four calls must remain in this order
-    enigma = Enigma(["I", "II", "III"], "UGE", "WMT")
+    enigma = Enigma(["I", "II", "III"], "XGE", "WMC")
     enigma.set_rotors()
     enigma.set_rings()
     enigma.set_key()
@@ -188,9 +191,26 @@ def main():
 
     user_input_letter = "D"
 
+    enigma.rotate_rotor_right()
+    enigma.show_rotors()
+
+    # Right rotor
     index = enigma.get_index_of_letter(enigma.keyboard, user_input_letter)
     letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
-    print(f"{index = } Letter: {letter = }")
+    index = enigma.get_rotor_output_index(enigma.rotors["right_output"], letter)
+    print(f"{index = } {letter = }")
+
+    # Center Rotor
+    index = enigma.get_index_of_letter(enigma.rotors["right_output"], letter)
+    letter = enigma.get_letter_at_index(enigma.rotors["center_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["center_output"], letter)
+    print(f"{index = } {letter = }")
+
+    # Left rotor
+    index = enigma.get_index_of_letter(enigma.rotors["center_output"], letter)
+    letter = enigma.get_letter_at_index(enigma.rotors["left_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["left_output"], letter)
+    print(f"{index = } {letter = }")
 
 
 if __name__ == "__main__":
