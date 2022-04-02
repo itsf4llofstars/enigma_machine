@@ -220,7 +220,8 @@ def main():
 
     # Reflector
     reflector_in_letter = enigma.get_letter_at_index(enigma.reflectorB, index)
-    reflector_out_index = enigma.get_reflector_out_index(enigma.reflectorB, index, reflector_in_letter)
+    reflector_out_index = enigma.get_reflector_out_index(enigma.reflectorB,
+            index, reflector_in_letter)
     print(f"{reflector_in_letter = } {reflector_out_index = }")
 
 
