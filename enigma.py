@@ -231,6 +231,11 @@ def main():
     index = enigma.get_index_of_letter(enigma.rotors["left_input"], letter)
     print(f"{index = } {letter = }")
 
+    # Center rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_output"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["center_input"], letter)
+    print(f"{index = } {letter = }")
+
 
 if __name__ == "__main__":
     import sys
