@@ -31,6 +31,7 @@ from collections import deque
 class Enigma:
     """Class model of the German Enigma Test Encoding machine
     """
+
     def __init__(self, reflector, selected_rotors, rings: str, key: str) -> None:
         self.keyboard = deque([
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
@@ -207,12 +208,14 @@ def main():
     # Right rotor
     index = enigma.get_index_of_letter(enigma.keyboard, user_input_letter)
     letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
-    index = enigma.get_rotor_output_index(enigma.rotors["right_output"], letter)
+    index = enigma.get_rotor_output_index(
+        enigma.rotors["right_output"], letter)
     print(f"output index: {index} {letter = }")
 
     # Center Rotor
     letter = enigma.get_letter_at_index(enigma.rotors["center_input"], index)
-    index = enigma.get_rotor_output_index(enigma.rotors["center_output"], letter)
+    index = enigma.get_rotor_output_index(
+        enigma.rotors["center_output"], letter)
     print(f"output index: {index} {letter = }")
 
     # Left rotor
@@ -223,11 +226,12 @@ def main():
     # Reflector
     reflector_in_letter = enigma.get_letter_at_index(enigma.reflectorB, index)
     reflector_out_index = enigma.get_reflector_out_index(enigma.reflectorB,
-            index, reflector_in_letter)
+                                                         index, reflector_in_letter)
     print(f"{reflector_in_letter = } {reflector_out_index = }")
 
     # Left rotor
-    letter = enigma.get_letter_at_index(enigma.rotors["left_output"], reflector_out_index)
+    letter = enigma.get_letter_at_index(
+        enigma.rotors["left_output"], reflector_out_index)
     index = enigma.get_index_of_letter(enigma.rotors["left_input"], letter)
     print(f"output index: {index} {letter = }")
 
