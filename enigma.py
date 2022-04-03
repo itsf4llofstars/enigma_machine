@@ -199,8 +199,8 @@ def main():
 
     user_input_letter = "D"
 
-    enigma.rotate_rotor_right()
     enigma.show_rotors()
+    # enigma.rotate_rotor_right()
 
     # Right rotor
     index = enigma.get_index_of_letter(enigma.keyboard, user_input_letter)
@@ -209,13 +209,11 @@ def main():
     print(f"{index = } {letter = }")
 
     # Center Rotor
-    index = enigma.get_index_of_letter(enigma.rotors["right_output"], letter)
     letter = enigma.get_letter_at_index(enigma.rotors["center_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["center_output"], letter)
     print(f"{index = } {letter = }")
 
     # Left rotor
-    index = enigma.get_index_of_letter(enigma.rotors["center_output"], letter)
     letter = enigma.get_letter_at_index(enigma.rotors["left_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["left_output"], letter)
     print(f"{index = } {letter = }")
