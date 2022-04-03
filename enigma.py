@@ -31,11 +31,13 @@ from collections import deque
 class Enigma:
     """Class model of the German Enigma Test Encoding machine
     """
-    def __init__(self, selected_rotors, rings: str, key: str) -> None:
+    def __init__(self, reflector, selected_rotors, rings: str, key: str) -> None:
         self.keyboard = deque([
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         ])
+
+        self.reflector = reflector
 
         # May not be needed
         self.rotor1 = deque([
@@ -188,7 +190,7 @@ class Enigma:
 
 def main():
     # The below four calls must remain in this order
-    enigma = Enigma(["I", "II", "III"], "XGE", "WMC")
+    enigma = Enigma("B", ["I", "II", "III"], "XGE", "WMC")
     enigma.set_rotors()
     enigma.set_rings()
     enigma.set_key()
@@ -223,6 +225,11 @@ def main():
     reflector_out_index = enigma.get_reflector_out_index(enigma.reflectorB,
             index, reflector_in_letter)
     print(f"{reflector_in_letter = } {reflector_out_index = }")
+
+    # Left rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["left_output"], reflector_out_index)
+    index = enigma.get_index_of_letter(enigma.rotors["left_input"], letter)
+    print(f"{index = } {letter = }")
 
 
 if __name__ == "__main__":
