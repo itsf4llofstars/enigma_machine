@@ -199,24 +199,26 @@ def main():
 
     user_input_letter = "D"
 
+    enigma.rotate_rotor_right()
+
     enigma.show_rotors()
-    # enigma.rotate_rotor_right()
+    print(f"Letter input to be encoded: {user_input_letter}")
 
     # Right rotor
     index = enigma.get_index_of_letter(enigma.keyboard, user_input_letter)
     letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["right_output"], letter)
-    print(f"{index = } {letter = }")
+    print(f"output index: {index} {letter = }")
 
     # Center Rotor
     letter = enigma.get_letter_at_index(enigma.rotors["center_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["center_output"], letter)
-    print(f"{index = } {letter = }")
+    print(f"output index: {index} {letter = }")
 
     # Left rotor
     letter = enigma.get_letter_at_index(enigma.rotors["left_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["left_output"], letter)
-    print(f"{index = } {letter = }")
+    print(f"output index: {index} {letter = }")
 
     # Reflector
     reflector_in_letter = enigma.get_letter_at_index(enigma.reflectorB, index)
@@ -227,17 +229,17 @@ def main():
     # Left rotor
     letter = enigma.get_letter_at_index(enigma.rotors["left_output"], reflector_out_index)
     index = enigma.get_index_of_letter(enigma.rotors["left_input"], letter)
-    print(f"{index = } {letter = }")
+    print(f"output index: {index} {letter = }")
 
     # Center rotor
     letter = enigma.get_letter_at_index(enigma.rotors["center_output"], index)
     index = enigma.get_index_of_letter(enigma.rotors["center_input"], letter)
-    print(f"{index = } {letter = }")
+    print(f"output index: {index} {letter = }")
 
     # Rigth rotor
     letter = enigma.get_letter_at_index(enigma.rotors["right_output"], index)
     index = enigma.get_index_of_letter(enigma.rotors["right_input"], letter)
-    print(f"{index = } {letter = }")
+    print(f"output index: {index} {letter = }")
 
     # Encoded letter
     encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
@@ -245,5 +247,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import sys
     main()
