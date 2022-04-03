@@ -236,6 +236,15 @@ def main():
     index = enigma.get_index_of_letter(enigma.rotors["center_input"], letter)
     print(f"{index = } {letter = }")
 
+    # Rigth rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["right_output"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["right_input"], letter)
+    print(f"{index = } {letter = }")
+
+    # Encoded letter
+    encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
+    print(f"Input: {user_input_letter} -> {encoded_letter}")
+
 
 if __name__ == "__main__":
     import sys
