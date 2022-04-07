@@ -28,11 +28,16 @@ def get_reflector():
     return str(input("Enter the reflector you wish to use [B/C]: "))
 
 
+def get_rings():
+    rings = str(input("Enter a three letter ring setting: "))
+    return rings.upper()
+
+
 def main():
     user_reflector = get_reflector()
-    print(f"{user_reflector = }")
+    user_rings = get_rings()
+    print(f"{user_reflector = } {user_rings = }")
 
 
 if __name__ == "__main__":
     main()
-
