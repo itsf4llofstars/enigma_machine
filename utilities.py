@@ -24,8 +24,13 @@ under certain conditions; type `show c' for details.
 """
 
 
+def get_reflector():
+    return str(input("Enter the reflector you wish to use [B/C]: "))
+
+
 def main():
-    pass
+    user_reflector = get_reflector()
+    print(f"{user_reflector = }")
 
 
 if __name__ == "__main__":
