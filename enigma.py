@@ -24,6 +24,7 @@ under certain conditions; type `show c' for details.
 """
 
 from collections import deque
+from copy import copy
 
 # TODO: Set reflector attribute in class init
 
@@ -37,8 +38,6 @@ class Enigma:
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         ])
-
-        self.reflector = reflector
 
         # May not be needed
         self.rotor1 = deque([
@@ -109,6 +108,12 @@ class Enigma:
             "D", "L", "R", "D", "K", "N", "O", "Q", "V", "Y", "R", "F", "L"
         ]
 
+        self.reflector = None
+        if reflector.upper() == "B":
+            self.reflector = copy(self.reflectorB)
+        else:
+            self.reflector = copy(self.reflectorC)
+
         self.selected_rotors = selected_rotors
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
@@ -133,8 +138,7 @@ class Enigma:
         [print(letter, end=" ") for letter in self.rotors["left_output"]]
         print("\n")
 
-        # TODO: This will need to be changed to the reflector in use
-        [print(letter, end=" ") for letter in self.reflectorB]
+        [print(letter, end=" ") for letter in self.reflector]
         print("\n")
 
     def set_rotors(self):
@@ -160,7 +164,7 @@ class Enigma:
         while self.rotors["left_input"][0] != self.key_setting[2]:
             deque.rotate(self.rotors["left_input"], -1)
             deque.rotate(self.rotors["left_output"], -1)
-
+    
     def rotate_rotor_right(self):
         deque.rotate(self.rotors["right_input"], -1)
         deque.rotate(self.rotors["right_output"], -1)
@@ -223,9 +227,9 @@ def main():
     print(f"output index: {index} {letter = }")
 
     # Reflector
-    reflector_in_letter = enigma.get_letter_at_index(enigma.reflectorB, index)
+    reflector_in_letter = enigma.get_letter_at_index(enigma.reflector, index)
     reflector_out_index = enigma.get_reflector_out_index(
-        enigma.reflectorB, index, reflector_in_letter
+        enigma.reflector, index, reflector_in_letter
     )
     print(f"{reflector_in_letter = } {reflector_out_index = }")
 
