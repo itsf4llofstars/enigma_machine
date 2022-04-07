@@ -33,10 +33,16 @@ def get_rings():
     return rings.upper()
 
 
+def get_key():
+    key = str(input("Enter a three letter key: "))
+    return key.upper()
+
+
 def main():
     user_reflector = get_reflector()
     user_rings = get_rings()
-    print(f"{user_reflector = } {user_rings = }")
+    user_key = get_key()
+    print(f"{user_reflector = } {user_rings = } {user_key = }")
 
 
 if __name__ == "__main__":
