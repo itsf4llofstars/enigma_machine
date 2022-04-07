@@ -24,16 +24,31 @@ under certain conditions; type `show c' for details.
 """
 
 
-def get_reflector():
+def get_reflector() -> str:
+    """_summary_
+
+    Returns:
+        str: _description_
+    """
     return str(input("Enter the reflector you wish to use [B/C]: "))
 
 
-def get_rings():
+def get_rings() -> str:
+    """_summary_
+
+    Returns:
+        str: _description_
+    """
     rings = str(input("Enter a three letter ring setting: "))
     return rings.upper()
 
 
-def get_key():
+def get_key() -> str:
+    """_summary_
+
+    Returns:
+        str: _description_
+    """
     key = str(input("Enter a three letter key: "))
     return key.upper()
 
