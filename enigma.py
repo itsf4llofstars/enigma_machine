@@ -138,8 +138,7 @@ class Enigma:
         [print(letter, end=" ") for letter in self.rotors["left_output"]]
         print("\n")
 
-        # TODO: This will need to be changed to the reflector in use
-        [print(letter, end=" ") for letter in self.reflectorB]
+        [print(letter, end=" ") for letter in self.reflector]
         print("\n")
 
     def set_rotors(self):
@@ -228,9 +227,9 @@ def main():
     print(f"output index: {index} {letter = }")
 
     # Reflector
-    reflector_in_letter = enigma.get_letter_at_index(enigma.reflectorB, index)
+    reflector_in_letter = enigma.get_letter_at_index(enigma.reflector, index)
     reflector_out_index = enigma.get_reflector_out_index(
-        enigma.reflectorB, index, reflector_in_letter
+        enigma.reflector, index, reflector_in_letter
     )
     print(f"{reflector_in_letter = } {reflector_out_index = }")
 
