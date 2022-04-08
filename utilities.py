@@ -53,11 +53,26 @@ def get_key() -> str:
     return key.upper()
 
 
+def get_rotors():
+    rotors = []
+    rotor = str(input("Enter the left rotor: "))
+    rotors.append(rotor.upper())
+
+    rotor = str(input("Enter the center rotor: "))
+    rotors.append(rotor.upper())
+
+    rotor = str(input("Enter the center rotor: "))
+    rotors.append(rotor.upper())
+
+    return list(rotors)
+
+
 def main():
     user_reflector = get_reflector()
     user_rings = get_rings()
     user_key = get_key()
-    print(f"{user_reflector = } {user_rings = } {user_key = }")
+    user_rotors = get_rotors()
+    print(f"{user_reflector = } {user_rings = } {user_key = } {user_rotors = }")
 
 
 if __name__ == "__main__":
