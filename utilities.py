@@ -83,6 +83,12 @@ def main():
     user_rotors = get_rotors()
     print(f"{user_reflector = } {user_rings = } {user_key = } {user_rotors = }")
 
+    user_letter = get_user_letter()
+    print(f"{user_letter = }")
+
+    user_letter = get_user_letter()
+    print(f"{user_letter = }")
+
 
 if __name__ == "__main__":
     main()
