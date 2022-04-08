@@ -58,7 +58,7 @@ if 0:
     br.shuffle_rotor(rotor_iv)
     br.shuffle_rotor(rotor_v)
 
-    filepath = "path_to_file"
+    filepath = ""
     br.check_for_rotor_file(filepath)
 
     br.write_rotor_file(rotor_i)
