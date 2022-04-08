@@ -23,7 +23,7 @@ This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 """
 
-import build-rotors as br
+import buildrotors as br
 import utilities as f
 from enigma import Enigma
 
