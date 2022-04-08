@@ -53,7 +53,13 @@ def get_key() -> str:
     return key.upper()
 
 
+# TODO: Add error checking
 def get_rotors():
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
     rotors = []
     rotor = str(input("Enter the left rotor: "))
     rotors.append(rotor.upper())
