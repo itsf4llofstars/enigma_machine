@@ -22,15 +22,16 @@ This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 """
-import build_rotors as br
+
+import build-rotors as br
 import utilities as f
 from enigma import Enigma
 
-rotor_i: List[str] = []
-rotor_ii: List[str] = []
-rotor_iii: List[str] = []
-rotor_iv: List[str] = []
-rotor_v: List[str] = []
+rotor_i = []
+rotor_ii = []
+rotor_iii = []
+rotor_iv = []
+rotor_v = []
 
 br.build_rotor(rotor_i)
 br.build_rotor(rotor_ii)
