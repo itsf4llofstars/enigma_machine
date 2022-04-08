@@ -72,6 +72,7 @@ def get_rotors():
 
     return list(rotors)
 
+
 def get_user_letter():
     return str(input("Enter your letter (qq to quit): ").upper())
 
