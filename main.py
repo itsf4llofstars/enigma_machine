@@ -39,30 +39,17 @@ print(f"{key = }")
 print(f"{rotors = }")
 print(f"{letter = }")
 
-if 0:
-    rotor_i = []
-    rotor_ii = []
-    rotor_iii = []
-    rotor_iv = []
-    rotor_v = []
+enigma = Enigma(reflector, rotors, ring, key)
 
-    br.build_rotor(rotor_i)
-    br.build_rotor(rotor_ii)
-    br.build_rotor(rotor_iii)
-    br.build_rotor(rotor_iv)
-    br.build_rotor(rotor_v)
 
-    br.shuffle_rotor(rotor_i)
-    br.shuffle_rotor(rotor_ii)
-    br.shuffle_rotor(rotor_iii)
-    br.shuffle_rotor(rotor_iv)
-    br.shuffle_rotor(rotor_v)
+go = True
+while go:
+    letter = f.get_user_letter()
+    if letter == 'QQ':
+        go = False
+        continue
 
-    filepath = ""
-    br.check_for_rotor_file(filepath)
+    print(f"{letter = }")
 
-    br.write_rotor_file(rotor_i)
-    br.write_rotor_file(rotor_ii)
-    br.write_rotor_file(rotor_iii)
-    br.write_rotor_file(rotor_iv)
-    br.write_rotor_file(rotor_v)
+print(f"User quit")
+
