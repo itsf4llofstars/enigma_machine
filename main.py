@@ -22,33 +22,85 @@ This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 """
-import build_rotors as br
+
+import buildrotors as br
 import utilities as f
 from enigma import Enigma
 
-rotor_i: List[str] = []
-rotor_ii: List[str] = []
-rotor_iii: List[str] = []
-rotor_iv: List[str] = []
-rotor_v: List[str] = []
+# reflector = f.get_reflector()
+# ring = f.get_rings()
+# key = f.get_key()
+# rotors = f.get_rotors()
+# letter = f.get_user_letter()
 
-br.build_rotor(rotor_i)
-br.build_rotor(rotor_ii)
-br.build_rotor(rotor_iii)
-br.build_rotor(rotor_iv)
-br.build_rotor(rotor_v)
+reflector = 'B'
+ring = 'ABC'
+key = 'XYZ'
+rotors = ['I', 'II', 'III']
+letter = f.get_user_letter()
 
-br.shuffle_rotor(rotor_i)
-br.shuffle_rotor(rotor_ii)
-br.shuffle_rotor(rotor_iii)
-br.shuffle_rotor(rotor_iv)
-br.shuffle_rotor(rotor_v)
+print(f"{reflector = }")
+print(f"{ring = }")
+print(f"{key = }")
+print(f"{rotors = }")
+print(f"{letter = }")
 
-filepath = "path_to_file"
-br.check_for_rotor_file(filepath)
+# The below four calls must be in their current order
+enigma = Enigma(reflector, rotors, ring, key)  # 1
+enigma.set_rotors()  # 2
+enigma.set_rings()  # 3
+enigma.set_key()  # 4
 
-br.write_rotor_file(rotor_i)
-br.write_rotor_file(rotor_ii)
-br.write_rotor_file(rotor_iii)
-br.write_rotor_file(rotor_iv)
-br.write_rotor_file(rotor_v)
+
+go = True
+user_input_letter = ""
+while go:
+    letter = f.get_user_letter()
+    if letter == 'QQ':
+        go = False
+        continue
+    else:
+        user_input_letter = letter
+
+    enigma.rotate_rotor_right()
+
+    # enigma.show_rotors()
+
+    index = enigma.get_index_of_letter(enigma.keyboard, letter)
+    letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["right_output"], letter)
+
+    # Center Rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["center_output"], letter)
+
+    # Left rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["left_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["left_output"], letter)
+
+    # Reflector
+    reflector_in_letter = enigma.get_letter_at_index(enigma.reflector, index)
+    reflector_out_index = enigma.get_reflector_out_index(
+        enigma.reflector, index, reflector_in_letter
+    )
+
+    # Left rotor
+    letter = enigma.get_letter_at_index(
+        enigma.rotors["left_output"], reflector_out_index
+    )
+    index = enigma.get_index_of_letter(enigma.rotors["left_input"], letter)
+
+    # Center rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_output"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["center_input"], letter)
+
+    # Rigth rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["right_output"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["right_input"], letter)
+
+    # Encoded letter
+    encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
+    print(f"Input: {user_input_letter} -> {encoded_letter}")
+
+print(f"User quit")
+
