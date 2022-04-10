@@ -24,12 +24,16 @@ under certain conditions; type `show c' for details.
 """
 
 from collections import deque
+from copy import copy
+
+# TODO: Set reflector attribute in class init
 
 
+# fmt: off
 class Enigma:
     """Class model of the German Enigma Test Encoding machine
     """
-    def __init__(self, selected_rotors, rings: str, key: str) -> None:
+    def __init__(self, reflector, selected_rotors, rings: str, key: str) -> None:
         self.keyboard = deque([
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
@@ -104,9 +108,38 @@ class Enigma:
             "D", "L", "R", "D", "K", "N", "O", "Q", "V", "Y", "R", "F", "L"
         ]
 
+        self.reflector = None
+        if reflector.upper() == "B":
+            self.reflector = copy(self.reflectorB)
+        else:
+            self.reflector = copy(self.reflectorC)
+
         self.selected_rotors = selected_rotors
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
+
+    def show_rotors(self):
+        print("\n")
+        [print(letter, end=" ") for letter in self.keyboard]
+        print("\n")
+
+        [print(letter, end=" ") for letter in self.rotors["right_input"]]
+        print()
+        [print(letter, end=" ") for letter in self.rotors["right_output"]]
+        print("\n")
+
+        [print(letter, end=" ") for letter in self.rotors["center_input"]]
+        print()
+        [print(letter, end=" ") for letter in self.rotors["center_output"]]
+        print("\n")
+
+        [print(letter, end=" ") for letter in self.rotors["left_input"]]
+        print()
+        [print(letter, end=" ") for letter in self.rotors["left_output"]]
+        print("\n")
+
+        [print(letter, end=" ") for letter in self.reflector]
+        print("\n")
 
     def set_rotors(self):
         self.rotors["right_output"] = self.stored_rotors[self.selected_rotors[0]]
@@ -131,6 +164,18 @@ class Enigma:
         while self.rotors["left_input"][0] != self.key_setting[2]:
             deque.rotate(self.rotors["left_input"], -1)
             deque.rotate(self.rotors["left_output"], -1)
+    
+    def rotate_rotor_right(self):
+        deque.rotate(self.rotors["right_input"], -1)
+        deque.rotate(self.rotors["right_output"], -1)
+
+    def rotate_rotor_center(self):
+        deque.rotate(self.rotors["center_input"], -1)
+        deque.rotate(self.rotors["center_output"], -1)
+
+    def rotate_rotor_left(self):
+        deque.rotate(self.rotors["left_input"], -1)
+        deque.rotate(self.rotors["left_output"], -1)
 
     def get_index_of_letter(self, rotor, letter):
         return rotor.index(letter)
@@ -138,37 +183,77 @@ class Enigma:
     def get_letter_at_index(self, rotor, index):
         return rotor[index]
 
+    def get_rotor_output_index(self, rotor, letter):
+        return rotor.index(letter)
+
+    def get_reflector_out_index(self, reflector, index, letter):
+        index = (1 + index) % len(reflector)
+        while reflector[index] != letter:
+            index = (1 + index) % len(reflector)
+        return index
+# fmt: on
+
 
 def main():
     # The below four calls must remain in this order
-    enigma = Enigma(["I", "II", "III"], "ABC", "XYZ")
+    enigma = Enigma("B", ["I", "II", "III"], "XGE", "WMC")
     enigma.set_rotors()
     enigma.set_rings()
     enigma.set_key()
 
-    print("\n")
-    [print(letter, end=" ") for letter in enigma.keyboard]
-    print("\n")
+    enigma.show_rotors()
 
-    [print(letter, end=" ") for letter in enigma.rotors["right_input"]]
-    print()
-    [print(letter, end=" ") for letter in enigma.rotors["right_output"]]
-    print("\n")
+    user_input_letter = "D"
 
-    [print(letter, end=" ") for letter in enigma.rotors["center_input"]]
-    print()
-    [print(letter, end=" ") for letter in enigma.rotors["center_output"]]
-    print("\n")
+    enigma.rotate_rotor_right()
 
-    [print(letter, end=" ") for letter in enigma.rotors["left_input"]]
-    print()
-    [print(letter, end=" ") for letter in enigma.rotors["left_output"]]
-    print("\n")
+    enigma.show_rotors()
+    print(f"Letter input to be encoded: {user_input_letter}")
 
-    [print(letter, end=" ") for letter in enigma.reflectorB]
-    print("\n")
+    # Right rotor
+    index = enigma.get_index_of_letter(enigma.keyboard, user_input_letter)
+    letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["right_output"], letter)
+    print(f"output index: {index} {letter = }")
+
+    # Center Rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["center_output"], letter)
+    print(f"output index: {index} {letter = }")
+
+    # Left rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["left_input"], index)
+    index = enigma.get_rotor_output_index(enigma.rotors["left_output"], letter)
+    print(f"output index: {index} {letter = }")
+
+    # Reflector
+    reflector_in_letter = enigma.get_letter_at_index(enigma.reflector, index)
+    reflector_out_index = enigma.get_reflector_out_index(
+        enigma.reflector, index, reflector_in_letter
+    )
+    print(f"{reflector_in_letter = } {reflector_out_index = }")
+
+    # Left rotor
+    letter = enigma.get_letter_at_index(
+        enigma.rotors["left_output"], reflector_out_index
+    )
+    index = enigma.get_index_of_letter(enigma.rotors["left_input"], letter)
+    print(f"output index: {index} {letter = }")
+
+    # Center rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["center_output"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["center_input"], letter)
+    print(f"output index: {index} {letter = }")
+
+    # Rigth rotor
+    letter = enigma.get_letter_at_index(enigma.rotors["right_output"], index)
+    index = enigma.get_index_of_letter(enigma.rotors["right_input"], letter)
+    print(f"output index: {index} {letter = }")
+
+    # Encoded letter
+    encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
+    print(f"Input: {user_input_letter} -> {encoded_letter}")
 
 
 if __name__ == "__main__":
-    import sys
     main()
