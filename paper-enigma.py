@@ -7,6 +7,7 @@ form the internet
 from collections import deque
 
 
+# fmt: off
 class PaperEnigma:
     def __init__(self, days_rotors, key):
         self.in_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
@@ -103,12 +104,11 @@ class PaperEnigma:
         while self.reflector[index] != letter:
             index = (1 + index) % len(self.reflector)
         return index
-
-
+# fmt: on
 
 
 def main():
-    enigma = PaperEnigma(["I", "II", "III"], 'mck')
+    enigma = PaperEnigma(["I", "II", "III"], "mck")
     enigma.show_rotor(enigma.in_out)
     enigma.set_key()
 
@@ -154,16 +154,24 @@ def main():
 
     ## Reflector
     reflector_input_letter = enigma.get_letter_at_index(enigma.reflector, index)
-    print(f"Reflector input letter: {reflector_input_letter} Reflector input index: {index}")
-    reflector_out_index = enigma.get_reflector_ouput_index(reflector_input_letter, index)
-    print(f"Reflector output letter: {reflector_input_letter} Reflector output index: {reflector_out_index}")
+    print(
+        f"Reflector input letter: {reflector_input_letter} Reflector input index: {index}"
+    )
+    reflector_out_index = enigma.get_reflector_ouput_index(
+        reflector_input_letter, index
+    )
+    print(
+        f"Reflector output letter: {reflector_input_letter} Reflector output index: {reflector_out_index}"
+    )
 
     print()
 
     """Operating from the Reflector to the Output"""
     ## Operating on the left rotor
     letter = enigma.get_letter_at_index(enigma.rotors["left_out"], reflector_out_index)
-    print(f"Left Rotor input letter: {letter} Left rotor input index: {reflector_out_index}")
+    print(
+        f"Left Rotor input letter: {letter} Left rotor input index: {reflector_out_index}"
+    )
     index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
     print(f"Left Rotor output letter: {letter} Left Rotor output index: {index}")
 
@@ -181,7 +189,9 @@ def main():
 
     ## Final output (encoded) letter
     encoded_letter = enigma.get_letter_at_index(enigma.in_out, index)
-    print(f"Input letter: {input_letter} --> Maps to --> Encoded letter: {encoded_letter}")
+    print(
+        f"Input letter: {input_letter} --> Maps to --> Encoded letter: {encoded_letter}"
+    )
 
     input("\nContinue... ")
 
@@ -189,7 +199,7 @@ def main():
 
         input_letter = input("Enter a letter [qq to quit]: ")
 
-        if input_letter.upper() == 'QQ':
+        if input_letter.upper() == "QQ":
             break
 
         enigma.rotate_right()
@@ -225,9 +235,13 @@ def main():
         index = enigma.get_index_of_letter(enigma.rotors["left_out"], letter)
 
         reflector_input_letter = enigma.get_letter_at_index(enigma.reflector, index)
-        reflector_out_index = enigma.get_reflector_ouput_index(reflector_input_letter, index)
+        reflector_out_index = enigma.get_reflector_ouput_index(
+            reflector_input_letter, index
+        )
 
-        letter = enigma.get_letter_at_index(enigma.rotors["left_out"], reflector_out_index)
+        letter = enigma.get_letter_at_index(
+            enigma.rotors["left_out"], reflector_out_index
+        )
         index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
 
         letter = enigma.get_letter_at_index(enigma.rotors["center_out"], index)
@@ -237,10 +251,13 @@ def main():
         index = enigma.get_index_of_letter(enigma.rotors["right_in"], letter)
 
         encoded_letter = enigma.get_letter_at_index(enigma.in_out, index)
-        print(f"Input letter: {input_letter} --> Maps to --> Encoded letter: {encoded_letter}")
+        print(
+            f"Input letter: {input_letter} --> Maps to --> Encoded letter: {encoded_letter}"
+        )
 
 
 if __name__ == "__main__":
     import os
+
     os.system("clear")
     main()
