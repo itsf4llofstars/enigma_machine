@@ -26,6 +26,7 @@ from collections import deque
 from sys import exit
 
 
+# fmt: off
 class ShortEnigma:
     def __init__(self, key):
         self.in_out = deque(['A', 'B', 'C', 'D', 'E', 'F'])
@@ -126,6 +127,7 @@ class ShortEnigma:
         while self.reflector[in_index] != reflector_in_letter:
             in_index = (1 + in_index) % 6
         return in_index
+# fmt: on
 
 
 def main():
@@ -143,7 +145,7 @@ def main():
             if enigma.rotors["center_out"][0] == "E":
                 enigma.rotate_left()
 
-        if input_letter.upper() == 'QQ':
+        if input_letter.upper() == "QQ":
             break
 
         index = enigma.get_index_of_letter(enigma.in_out, input_letter.upper())
@@ -166,10 +168,14 @@ def main():
         reflector_index = index
 
         # Reflector output index
-        reflector_output_index = enigma.get_reflector_out_index(reflector_index, reflector_letter)
+        reflector_output_index = enigma.get_reflector_out_index(
+            reflector_index, reflector_letter
+        )
 
         """Going To The Output"""
-        letter = enigma.get_letter_at_index(enigma.rotors["left_out"], reflector_output_index)
+        letter = enigma.get_letter_at_index(
+            enigma.rotors["left_out"], reflector_output_index
+        )
         index = enigma.get_index_of_letter(enigma.rotors["left_in"], letter)
 
         letter = enigma.get_letter_at_index(enigma.rotors["center_out"], index)
@@ -185,5 +191,6 @@ def main():
 
 if __name__ == "__main__":
     from os import system
+
     # system("clear")
     main()
