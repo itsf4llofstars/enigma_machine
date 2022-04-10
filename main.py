@@ -33,10 +33,10 @@ from enigma import Enigma
 # rotors = f.get_rotors()
 # letter = f.get_user_letter()
 
-reflector = 'B'
-ring = 'ABC'
-key = 'XYZ'
-rotors = ['I', 'II', 'III']
+reflector = "B"
+ring = "ABC"
+key = "XYZ"
+rotors = ["I", "II", "III"]
 letter = f.get_user_letter()
 
 print(f"{reflector = }")
@@ -56,7 +56,7 @@ go = True
 user_input_letter = ""
 while go:
     letter = f.get_user_letter()
-    if letter == 'QQ':
+    if letter == "QQ":
         go = False
         continue
     else:
@@ -103,4 +103,3 @@ while go:
     print(f"Input: {user_input_letter} -> {encoded_letter}")
 
 print(f"User quit")
-
