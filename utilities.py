@@ -76,6 +76,16 @@ def get_rotors():
 def get_user_letter():
     return str(input("Enter your letter (qq to quit): ").upper())
 
+def print_out(message):
+    print("Message:\n")
+    for i, letter in enumerate(message):
+        if i > 0 and i % 4 == 0:
+            print(" ", end="")
+        if i > 0 and i % 28 == 0:
+            print()
+        print(letter, end="")
+    print("\n")
+
 
 def main():
     user_reflector = get_reflector()
