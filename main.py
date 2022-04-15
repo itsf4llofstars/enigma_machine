@@ -123,9 +123,14 @@ for letter in message:
     print(letter, end="")
 print()
 
+block = 0
 for i, letter in enumerate(message):
     if i > 0 and i % 4 == 0:
         print(" ", end="")
+    if i > 0 and i % 28 == 0:
+        print()
+
     print(letter, end="")
+
 print("\n")
 
