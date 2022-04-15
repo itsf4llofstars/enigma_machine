@@ -106,8 +106,15 @@ if 0:
     print(f"User quit")
 
 example_str = "THEXEASTXMOONXRISESXWITHXNOXTIDEX"
+print(example_str)
 
 for letter in example_str:
-    print(letter, end=" ")
+    print(letter, end="")
+print()
+
+for i, letter in enumerate(example_str):
+    if i > 0 and i % 4 == 0:
+        print(" ", end="")
+    print(letter, end="")
 print()
 
