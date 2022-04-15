@@ -107,30 +107,9 @@ if 0:
 
 example_str = "THEXEASTXMOONXRISESXWITHXNOXTIDEX"
 message: str = "THEXCHAIRXISXAGAINSTXTHEXWALLXJOHNXHASXAXLONGXMUSTACHEXALLXWORKXANDXNOXPLAYXMAKEXJACKXAXDULLXBOY"
-print(example_str)
 
-for letter in example_str:
-    print(letter, end="")
+f.print_out(example_str)
 print()
-
-for i, letter in enumerate(example_str):
-    if i > 0 and i % 4 == 0:
-        print(" ", end="")
-    print(letter, end="")
-print("\n")
-
-for letter in message:
-    print(letter, end="")
+f.print_out(message)
 print()
-
-block = 0
-for i, letter in enumerate(message):
-    if i > 0 and i % 4 == 0:
-        print(" ", end="")
-    if i > 0 and i % 28 == 0:
-        print()
-
-    print(letter, end="")
-
-print("\n")
 
