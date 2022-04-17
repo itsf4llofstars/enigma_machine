@@ -1,6 +1,8 @@
 # Additional ignores for enigma project
 rotors.txt
 *.json
+settings.json
+.vscode/settings.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
