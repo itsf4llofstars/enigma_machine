@@ -18,9 +18,9 @@ def get_key() -> str:
     return:
         key [str]: String representation of the entered key
     """
-    key = ""
+    key: str = ""
     while True:
-        key: str = str(input("Enter your key: ").upper())
+        key = str(input("Enter your key: ").upper())
         if len(key) == 0:
             print("Please enter a key of letters longer than 0\n")
             continue
@@ -45,7 +45,7 @@ def get_message() -> str:
     return:
         message [str]: Users inputted message
     """
-    message = ""
+    message: str = ""
     while len(message) == 0:
         message: str = str(input("Enter your message: ").upper())
         if len(message) < 1:
@@ -61,7 +61,7 @@ def encode_message(message: str, key: str):
     """
     key_list = list(key)
     encoded_message = []
-    index = 0
+    index: int = 0
     while True:
         while rotor_out[0] != key_list[0]:
             temp_letter = rotor_out.pop(0)
@@ -86,7 +86,7 @@ def encode_letter(key: str) -> None:
     """
     key_list = list(key)
     while True:
-        letter = str(input("Enter a letter: ").upper())
+        letter: str = str(input("Enter a letter: ").upper())
         while rotor_out[0] != key_list[0]:
             temp_letter = rotor_out.pop(0)
             rotor_out.append(temp_letter)
