@@ -73,7 +73,7 @@ def encode_message(message: str, key: str):
         encoded_message.append(rotor_out[input_index])
 
         index += 1
-        if index == len(message) - 1:
+        if index == len(message):
             break
 
     return encoded_message
