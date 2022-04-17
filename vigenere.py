@@ -115,14 +115,17 @@ def print_rotors() -> None:
 
 
 user_key: str = get_key()
-encode_letter(user_key)
-# user_message: str = get_message()
-# user_encoded_message = encode_message(user_message, user_key)
-# print_rotors()
 
-# print(user_key)
-# print(rotor_in)
-# print(rotor_out)
-# print(user_message)
-# [print(letter, end="") for letter in user_encoded_message]
-print()
+if 0:
+    encode_letter(user_key)
+else:
+    user_message: str = get_message()
+    user_encoded_message = encode_message(user_message, user_key)
+    print_rotors()
+
+    print(user_key)
+    print(rotor_in)
+    print(rotor_out)
+    print(user_message)
+    [print(letter, end="") for letter in user_encoded_message]
+    print()
