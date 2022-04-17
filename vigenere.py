@@ -70,10 +70,15 @@ def encode_message(message: str, key: str):
     return encoded_message
 
 
+def print_rotors():
+    [print(letter, end="") for letter in rotor_in]
+    [print(letter, end="") for letter in rotor_out]
+
+
 user_key: str = get_key()
-# set_key_letter(user_key[0])
 user_message: str = get_message()
 user_encoded_message = encode_message(user_message, user_key)
+print_rotors()
 
 print(user_key)
 print(rotor_in)
