@@ -3,6 +3,7 @@ rotors.txt
 *.json
 settings.json
 .vscode/settings.json
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
