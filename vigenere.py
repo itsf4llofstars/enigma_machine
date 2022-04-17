@@ -73,20 +73,38 @@ def encode_message(message: str, key: str):
     return encoded_message
 
 
+def encode_letter(key: str):
+    key_list = list(key)
+    while True:
+        letter = str(input("Enter a letter: ").upper())
+        while rotor_out[0] != key_list[0]:
+            temp_letter = rotor_out.pop(0)
+            rotor_out.append(temp_letter)
+        temp_letter = key_list.pop(0)
+        key_list.append(temp_letter)
+        input_index = rotor_in.index(letter)
+        encoded_letter = rotor_out[input_index]
+        print_rotors()
+        print(encoded_letter)
+
+
 def print_rotors():
     [print(letter, end="") for letter in rotor_in]
+    print()
     [print(letter, end="") for letter in rotor_out]
+    print()
 
 
 user_key: str = get_key()
-user_message: str = get_message()
-user_encoded_message = encode_message(user_message, user_key)
-print_rotors()
+encode_letter(user_key)
+# user_message: str = get_message()
+# user_encoded_message = encode_message(user_message, user_key)
+# print_rotors()
 
-print(user_key)
-print(rotor_in)
-print(rotor_out)
-print(user_message)
-[print(letter, end="") for letter in user_encoded_message]
+# print(user_key)
+# print(rotor_in)
+# print(rotor_out)
+# print(user_message)
+# [print(letter, end="") for letter in user_encoded_message]
 print()
 
