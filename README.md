@@ -75,7 +75,7 @@ Run the script by:
 The below notes are for the author, they may not be readalbe or clear to others, please see<br>
 script documentation if available.<br>
 
-This will begin with a loosley based operation of the German Enigma Machine.<br>
+This will begin with a loosely based operation of the German Enigma Machine.<br>
 
 ### Order of Operation
 
