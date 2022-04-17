@@ -50,7 +50,7 @@ def get_message() -> str:
     return message
 
 
-def encode_message(message: str, key: str) -> Object:
+def encode_message(message: str, key: str):
     """Encodeds users message
 
     return:
