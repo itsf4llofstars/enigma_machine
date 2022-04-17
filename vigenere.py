@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# fmt: off
 rotor_in = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
@@ -8,6 +9,7 @@ rotor_out = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 ]
+# fmt: on
 
 
 def get_key() -> str:
@@ -28,8 +30,9 @@ def get_key() -> str:
 
 
 def set_key_letter(letter: str) -> None:
-    """Removes and places, the first letter in the output rotor until the
-    first letter of the output rotor is equal to the first letter of the key.
+    """Removes and places, the first letter in the output
+    rotor until the first letter of the output rotor is
+    equal to the first letter of the key.
     """
     while rotor_out[0] != letter:
         temp_letter = rotor_out.pop(0)
@@ -117,4 +120,3 @@ encode_letter(user_key)
 # print(user_message)
 # [print(letter, end="") for letter in user_encoded_message]
 print()
-
