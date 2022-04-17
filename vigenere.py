@@ -74,6 +74,13 @@ def encode_message(message: str, key: str):
 
 
 def encode_letter(key: str):
+    """Encodes a single inputted letter and prints the encoded
+    output along with the rotor positions used to encode the letter.
+
+    parameter:
+        key [str]: User passed key string used to set the 0'th index
+            of the output rotor
+    """
     key_list = list(key)
     while True:
         letter = str(input("Enter a letter: ").upper())
@@ -89,9 +96,9 @@ def encode_letter(key: str):
 
 
 def print_rotors():
-    [print(letter, end="") for letter in rotor_in]
+    [print(letter, end=" ") for letter in rotor_in]
     print()
-    [print(letter, end="") for letter in rotor_out]
+    [print(letter, end=" ") for letter in rotor_out]
     print()
 
 
