@@ -50,7 +50,7 @@ def get_message() -> str:
     return message
 
 
-def encode_message(message: str, key: str):
+def encode_message(message: str, key: str) -> Object:
     """Encodeds users message
 
     return:
@@ -73,7 +73,7 @@ def encode_message(message: str, key: str):
     return encoded_message
 
 
-def encode_letter(key: str):
+def encode_letter(key: str) -> None:
     """Encodes a single inputted letter and prints the encoded
     output along with the rotor positions used to encode the letter.
 
@@ -95,7 +95,10 @@ def encode_letter(key: str):
         print(encoded_letter)
 
 
-def print_rotors():
+def print_rotors() -> None:
+    """Prints the input rotor and the output rotor each on
+    a single line
+    """
     [print(letter, end=" ") for letter in rotor_in]
     print()
     [print(letter, end=" ") for letter in rotor_out]
