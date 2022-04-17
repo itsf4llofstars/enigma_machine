@@ -66,13 +66,16 @@ def encode_message(message: str, key: str):
         while rotor_out[0] != key_list[0]:
             temp_letter = rotor_out.pop(0)
             rotor_out.append(temp_letter)
+
         temp_letter = key_list.pop(0)
         key_list.append(temp_letter)
         input_index = rotor_in.index(message[index])
         encoded_message.append(rotor_out[input_index])
+
         index += 1
         if index == len(message) - 1:
             break
+
     return encoded_message
 
 
@@ -87,13 +90,16 @@ def encode_letter(key: str) -> None:
     key_list = list(key)
     while True:
         letter: str = str(input("Enter a letter: ").upper())
+
         while rotor_out[0] != key_list[0]:
             temp_letter = rotor_out.pop(0)
             rotor_out.append(temp_letter)
+
         temp_letter = key_list.pop(0)
         key_list.append(temp_letter)
         input_index = rotor_in.index(letter)
         encoded_letter = rotor_out[input_index]
+
         print_rotors()
         print(encoded_letter)
 
