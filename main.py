@@ -104,6 +104,7 @@ while go:
 
 print(f"User quit")
 
+# example and mesage for pretty pretty print testing
 example_str = "THEXEASTXMOONXRISESXWITHXNOXTIDEX"
 message: str = "THEXCHAIRXISXAGAINSTXTHEXWALLXJOHNXHASXAXLONGXMUSTACHEXALLXWORKXANDXNOXPLAYXMAKEXJACKXAXDULLXBOY"
 
