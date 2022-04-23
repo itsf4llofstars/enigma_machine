@@ -241,12 +241,10 @@ def main():
     enigma.set_rings()
     enigma.set_key()
 
-    enigma.show_rotors()
+    # enigma.show_rotors()
 
     user_input_letter = "D"
-
     enigma.rotate_rotor_right()
-
     enigma.show_rotors()
 
     # Keyboard
