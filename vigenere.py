@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# fmt: off
 rotor_in = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
@@ -8,6 +9,7 @@ rotor_out = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 ]
+# fmt: on
 
 
 def get_key() -> str:
@@ -16,9 +18,9 @@ def get_key() -> str:
     return:
         key [str]: String representation of the entered key
     """
-    key = ""
+    key: str = ""
     while True:
-        key: str = str(input("Enter your key: ").upper())
+        key = str(input("Enter your key: ").upper())
         if len(key) == 0:
             print("Please enter a key of letters longer than 0\n")
             continue
@@ -28,8 +30,9 @@ def get_key() -> str:
 
 
 def set_key_letter(letter: str) -> None:
-    """Removes and places, the first letter in the output rotor until the
-    first letter of the output rotor is equal to the first letter of the key.
+    """Removes and places, the first letter in the output
+    rotor until the first letter of the output rotor is
+    equal to the first letter of the key.
     """
     while rotor_out[0] != letter:
         temp_letter = rotor_out.pop(0)
@@ -42,7 +45,7 @@ def get_message() -> str:
     return:
         message [str]: Users inputted message
     """
-    message = ""
+    message: str = ""
     while len(message) == 0:
         message: str = str(input("Enter your message: ").upper())
         if len(message) < 1:
@@ -58,18 +61,21 @@ def encode_message(message: str, key: str):
     """
     key_list = list(key)
     encoded_message = []
-    index = 0
+    index: int = 0
     while True:
         while rotor_out[0] != key_list[0]:
             temp_letter = rotor_out.pop(0)
             rotor_out.append(temp_letter)
+
         temp_letter = key_list.pop(0)
         key_list.append(temp_letter)
         input_index = rotor_in.index(message[index])
         encoded_message.append(rotor_out[input_index])
+
         index += 1
-        if index == len(message) - 1:
+        if index == len(message):
             break
+
     return encoded_message
 
 
@@ -83,14 +89,17 @@ def encode_letter(key: str) -> None:
     """
     key_list = list(key)
     while True:
-        letter = str(input("Enter a letter: ").upper())
+        letter: str = str(input("Enter a letter: ").upper())
+
         while rotor_out[0] != key_list[0]:
             temp_letter = rotor_out.pop(0)
             rotor_out.append(temp_letter)
+
         temp_letter = key_list.pop(0)
         key_list.append(temp_letter)
         input_index = rotor_in.index(letter)
         encoded_letter = rotor_out[input_index]
+
         print_rotors()
         print(encoded_letter)
 
@@ -106,15 +115,17 @@ def print_rotors() -> None:
 
 
 user_key: str = get_key()
-encode_letter(user_key)
-# user_message: str = get_message()
-# user_encoded_message = encode_message(user_message, user_key)
-# print_rotors()
 
-# print(user_key)
-# print(rotor_in)
-# print(rotor_out)
-# print(user_message)
-# [print(letter, end="") for letter in user_encoded_message]
-print()
+if 0:
+    encode_letter(user_key)
+else:
+    user_message: str = get_message()
+    user_encoded_message = encode_message(user_message, user_key)
+    print_rotors()
 
+    print(user_key)
+    print(rotor_in)
+    print(rotor_out)
+    print(user_message)
+    [print(letter, end="") for letter in user_encoded_message]
+    print()
