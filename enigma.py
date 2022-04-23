@@ -26,12 +26,10 @@ under certain conditions; type `show c' for details.
 from collections import deque
 from copy import copy
 
-# TODO: Set reflector attribute in class init
-
 
 # fmt: off
 class Enigma:
-    """Class model of the German Enigma Test Encoding machine
+    """_summary_
     """
     def __init__(self, reflector, selected_rotors, rings: str, key: str) -> None:
         self.keyboard = deque([
@@ -119,6 +117,8 @@ class Enigma:
         self.key_setting = key.upper()
 
     def show_rotors(self):
+        """_summary_
+        """
         print("\n")
         [print(letter, end=" ") for letter in self.keyboard]
         print("\n")
@@ -142,11 +142,15 @@ class Enigma:
         print("\n")
 
     def set_rotors(self):
+        """_summary_
+        """
         self.rotors["right_output"] = self.stored_rotors[self.selected_rotors[0]]
         self.rotors["center_output"] = self.stored_rotors[self.selected_rotors[1]]
         self.rotors["left_output"] = self.stored_rotors[self.selected_rotors[2]]
 
     def set_rings(self):
+        """_summary_
+        """
         while self.rotors["right_output"][0] != self.ring_setting[0]:
             deque.rotate(self.rotors["right_output"], -1)
         while self.rotors["center_output"][0] != self.ring_setting[1]:
@@ -155,6 +159,8 @@ class Enigma:
             deque.rotate(self.rotors["left_output"], -1)
 
     def set_key(self):
+        """_summary_
+        """
         while self.rotors["right_input"][0] != self.key_setting[0]:
             deque.rotate(self.rotors["right_input"], -1)
             deque.rotate(self.rotors["right_output"], -1)
@@ -166,27 +172,61 @@ class Enigma:
             deque.rotate(self.rotors["left_output"], -1)
     
     def rotate_rotor_right(self):
+        """_summary_
+        """
         deque.rotate(self.rotors["right_input"], -1)
         deque.rotate(self.rotors["right_output"], -1)
 
     def rotate_rotor_center(self):
+        """_summary_
+        """
         deque.rotate(self.rotors["center_input"], -1)
         deque.rotate(self.rotors["center_output"], -1)
 
     def rotate_rotor_left(self):
+        """_summary_
+        """
         deque.rotate(self.rotors["left_input"], -1)
         deque.rotate(self.rotors["left_output"], -1)
 
     def get_index_of_letter(self, rotor, letter):
+        """_summary_
+
+        Args:
+            rotor (_type_): _description_
+            letter (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         return rotor.index(letter)
 
     def get_letter_at_index(self, rotor, index):
         return rotor[index]
 
     def get_rotor_output_index(self, rotor, letter):
+        """_summary_
+
+        Args:
+            rotor (_type_): _description_
+            letter (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         return rotor.index(letter)
 
     def get_reflector_out_index(self, reflector, index, letter):
+        """_summary_
+
+        Args:
+            reflector (_type_): _description_
+            index (_type_): _description_
+            letter (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         index = (1 + index) % len(reflector)
         while reflector[index] != letter:
             index = (1 + index) % len(reflector)
