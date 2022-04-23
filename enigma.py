@@ -250,8 +250,10 @@ def main():
     enigma.show_rotors()
     print(f"Letter input to be encoded: {user_input_letter}")
 
-    # Right rotor
+    # Keyboard
     index = enigma.get_index_of_letter(enigma.keyboard, user_input_letter)
+
+    # Right rotor
     letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["right_output"], letter)
     print(f"output index: {index} {letter = }")
