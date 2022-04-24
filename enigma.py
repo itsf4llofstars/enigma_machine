@@ -24,7 +24,6 @@ under certain conditions; type `show c' for details.
 """
 
 from collections import deque
-from copy import copy
 
 
 # fmt: off
