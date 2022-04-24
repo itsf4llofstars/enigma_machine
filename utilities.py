@@ -30,7 +30,7 @@ def get_reflector() -> str:
     Returns:
         str: _description_
     """
-    return str(input("Enter the reflector you wish to use [B/C]: "))
+    return str(input("Enter the reflector you wish to use [B/C]: ").upper())
 
 
 def get_rings() -> str:
