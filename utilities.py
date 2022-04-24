@@ -74,10 +74,20 @@ def get_rotors():
 
 
 def get_user_letter():
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
     return str(input("Enter your letter (qq to quit): ").upper())
 
 
 def print_out(message):
+    """_summary_
+
+    Args:
+        message (_type_): _description_
+    """
     print("Message:\n")
     for i, letter in enumerate(message):
         if i > 0 and i % 4 == 0:
