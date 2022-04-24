@@ -51,7 +51,6 @@ enigma.set_rotors()  # 2
 enigma.set_rings()  # 3
 enigma.set_key()  # 4
 
-
 go = True
 user_input_letter = ""
 while go:
@@ -102,12 +101,12 @@ while go:
     encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
     print(f"Input: {user_input_letter} -> {encoded_letter}")
 
-print(f"User quit")
-
-example_str = "THEXEASTXMOONXRISESXWITHXNOXTIDEX"
-message: str = "THEXCHAIRXISXAGAINSTXTHEXWALLXJOHNXHASXAXLONGXMUSTACHEXALLXWORKXANDXNOXPLAYXMAKEXJACKXAXDULLXBOY"
-
-f.print_out(example_str)
-print()
-f.print_out(message)
-print()
+# print(f"User quit")
+# 
+# example_str = "THEXEASTXMOONXRISESXWITHXNOXTIDEX"
+# message: str = "THEXCHAIRXISXAGAINSTXTHEXWALLXJOHNXHASXAXLONGXMUSTACHEXALLXWORKXANDXNOXPLAYXMAKEXJACKXAXDULLXBOY"
+# 
+# f.print_out(example_str)
+# print()
+# f.print_out(message)
+# print()
