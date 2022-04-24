@@ -37,28 +37,6 @@ class Enigma:
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         ])
 
-        # May not be needed
-        self.rotor1 = deque([
-            'U', 'L', 'R', 'X', 'C', 'Q', 'O', 'K', 'G', 'N', 'J', 'A', 'F',
-            'I', 'H', 'Z', 'W', 'S', 'E', 'Y', 'M', 'P', 'D', 'T', 'B', 'V'
-        ])
-        self.rotor2 = deque([
-            'Y', 'T', 'K', 'F', 'J', 'M', 'D', 'Q', 'C', 'H', 'X', 'R', 'P',
-            'E', 'L', 'W', 'Z', 'N', 'V', 'I', 'S', 'O', 'G', 'B', 'U', 'A'
-        ])
-        self.rotor3 = deque([
-            'P', 'X', 'E', 'Z', 'B', 'W', 'Y', 'L', 'F', 'G', 'U', 'C', 'D',
-            'S', 'I', 'R', 'J', 'O', 'M', 'A', 'K', 'H', 'T', 'N', 'V', 'Q'
-        ])
-        self.rotor4 = deque([
-            'R', 'P', 'X', 'G', 'K', 'S', 'B', 'Y', 'E', 'C', 'J', 'I', 'H',
-            'U', 'T', 'N', 'D', 'M', 'F', 'Q', 'A', 'V', 'L', 'Z', 'O', 'W'
-        ])
-        self.rotor5 = deque([
-            'S', 'M', 'I', 'R', 'X', 'P', 'J', 'U', 'O', 'A', 'V', 'D', 'Q',
-            'F', 'L', 'C', 'Z', 'K', 'T', 'W', 'G', 'E', 'N', 'B', 'H', 'Y'
-        ])
-
         self.stored_rotors = {
             "I": deque([
                 'U', 'L', 'R', 'X', 'C', 'Q', 'O', 'K', 'G', 'N', 'J', 'A', 'F',
@@ -97,20 +75,18 @@ class Enigma:
             ]),
         }
 
-        self.reflectorB = [
-            'F', 'B', 'A', 'V', 'B', 'A', 'T', 'Q', 'K', 'P', 'H', 'F', 'T',
-            'U', 'Q', 'P', 'J', 'X', 'J', 'K', 'V', 'X', 'Y', 'U', 'H', 'Y'
-        ]
-        self.reflectorC = [
-            'E', 'W', 'Z', 'F', 'N', 'W', 'Q', 'O', 'E', 'Z', 'Y', 'K', 'V',
-            'D', 'L', 'R', 'D', 'K', 'N', 'O', 'Q', 'V', 'Y', 'R', 'F', 'L'
-        ]
+        self.stored_reflectors = {
+            "B": [
+                'F', 'B', 'A', 'V', 'B', 'A', 'T', 'Q', 'K', 'P', 'H', 'F', 'T',
+                'U', 'Q', 'P', 'J', 'X', 'J', 'K', 'V', 'X', 'Y', 'U', 'H', 'Y'
+            ],
+            "C": [
+                'E', 'W', 'Z', 'F', 'N', 'W', 'Q', 'O', 'E', 'Z', 'Y', 'K', 'V',
+                'D', 'L', 'R', 'D', 'K', 'N', 'O', 'Q', 'V', 'Y', 'R', 'F', 'L'
+            ],
+        }
 
-        self.reflector = None
-        if reflector.upper() == "B":
-            self.reflector = copy(self.reflectorB)
-        else:
-            self.reflector = copy(self.reflectorC)
+        self.reflector = self.stored_reflectors[reflector]
 
         self.selected_rotors = selected_rotors
         self.ring_setting = rings.upper()
@@ -236,12 +212,12 @@ class Enigma:
 
 def main():
     # The below four calls must remain in this order
-    enigma = Enigma("B", ["I", "II", "III"], "XGE", "WMC")
+    enigma = Enigma("C", ["I", "II", "III"], "XGE", "WMC")
     enigma.set_rotors()
     enigma.set_rings()
     enigma.set_key()
 
-    # enigma.show_rotors()
+    enigma.show_rotors()
 
     user_input_letter = "D"
     enigma.rotate_rotor_right()
