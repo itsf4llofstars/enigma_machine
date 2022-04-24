@@ -3,23 +3,32 @@
  * */
 #include <stdio.h>
 
-void rotateRotor(char rotor[])
+void rotateRotor(char rotor[], int n)
 {
-    char temp = rotorRightIn[0];
+    for (int i = 0; i < n; ++i)
+    {
+        char temp = rotor[0];
 
-    for (int i = 0; i < (sizeof(rotor) / sizeof(char) - 1); ++i)
-        rotorRightIn[i] = rotorRightIn[i + 1];
+        for (int i = 0; i < 25; ++i)
+            rotor[i] = rotor[i + 1];
 
-    rotorRightIn[(sizeof(rotor) / sizeof(char) - 1)] = temp;
+        rotor[25] = temp;
+    }
 }
 
 int main(int argc, char **argv)
 {
-    char keyboard[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    char rotorRightIn[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    char keyboard[] = {
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    };
 
-    int sizeChar = (sizeof(rotorRightIn) / sizeof(char)) - 1;
-    printf("S: %d\n", sizeChar);
+    char rotorRightIn[] = {
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    };
+
+    rotateRotor(rotorRightIn, 5);
 
     for (size_t i = 0; i < (sizeof(rotorRightIn) / sizeof(char)); ++i)
         printf("%c ", rotorRightIn[i]);
