@@ -60,7 +60,7 @@ Run the script by:
 
 ## Build Your Own Random Rotors
 
-The build-rotors.py script will build 5 rotors consisting of 26 non-repeating randomized<br>
+The buildrotors.py script will build 5 rotors consisting of 26 non-repeating randomized<br>
 letter lists, suitable for use in Python code. It will also create 2 reflectors consisting of<br>
 26 single-repeating randomized letter lists. The script will write them to a text file named<br>
 rotors.txt in the working directory. If a rotors.txt file allredy exists the file will be<br>
