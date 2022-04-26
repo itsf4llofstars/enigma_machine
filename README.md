@@ -41,7 +41,7 @@ quit is done by entering qq or QQ at the prompt.<br>
 
 Run the script by:
 
-> $ short-enigma.py
+> $ python3 short-enigma.py
 
 The short enigma is similar to the paper enigma but only uses the first 6 letters of the<br>
 North American Alphabet. This is in hopes that it will be easier to read and understand what<br>
