@@ -51,8 +51,8 @@ understand what is going on with the machine and code.<br>
 ## Enigma Machine
 
 The enigma.py and main.py utilites.py are still in development. You can technically<br>
-run them but there is no assurance that they will work, or produce and outpu<br>
-.
+run them but there is no assurance that they will work, or produce and outpu.<br>
+
 You will need all three files in the directory.
 
 Run the script by:
