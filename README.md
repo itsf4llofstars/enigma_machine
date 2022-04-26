@@ -96,8 +96,3 @@ This will begin with a loosely based operation of the German Enigma Machine.<br>
 
 The above notes are for the author, they may not be readalbe or clear to others,<br>
 please see script documentation if available.<br>
-
-80############################################################################80
-80############################################################################80#####
-########################################################################################90
-########################################################################################90#####
