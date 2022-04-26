@@ -49,7 +49,7 @@ is going on with the machine and code.<br>
 
 ## Enigma Machine
 
-The enigma.py and main.py utilites.py are still in development. You can technically run them<br>
+The enigma.py main.py and utilites.py are still in development. You can technically run them<br>
 but there is no assurance that they will work, or produce and outpu.<br>
 
 You will need all three files in the directory.
