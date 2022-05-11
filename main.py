@@ -24,6 +24,7 @@ under certain conditions; type `show c' for details.
 """
 
 import buildrotors as br
+import os
 import utilities as f
 from enigma import Enigma
 
@@ -31,26 +32,22 @@ from enigma import Enigma
 # ring = f.get_rings()
 # key = f.get_key()
 # rotors = f.get_rotors()
-# letter = f.get_user_letter()
 
 reflector = "B"
 ring = "ABC"
 key = "XYZ"
 rotors = ["I", "II", "III"]
-letter = f.get_user_letter()
 
 print(f"{reflector = }")
 print(f"{ring = }")
 print(f"{key = }")
 print(f"{rotors = }")
-print(f"{letter = }")
 
 # The below four calls must be in their current order
 enigma = Enigma(reflector, rotors, ring, key)  # 1
 enigma.set_rotors()  # 2
 enigma.set_rings()  # 3
 enigma.set_key()  # 4
-
 
 go = True
 user_input_letter = ""
@@ -66,6 +63,7 @@ while go:
 
     # enigma.show_rotors()
 
+    # Right Rotor
     index = enigma.get_index_of_letter(enigma.keyboard, letter)
     letter = enigma.get_letter_at_index(enigma.rotors["right_input"], index)
     index = enigma.get_rotor_output_index(enigma.rotors["right_output"], letter)
@@ -94,11 +92,12 @@ while go:
     letter = enigma.get_letter_at_index(enigma.rotors["center_output"], index)
     index = enigma.get_index_of_letter(enigma.rotors["center_input"], letter)
 
-    # Rigth rotor
+    # Right rotor
     letter = enigma.get_letter_at_index(enigma.rotors["right_output"], index)
     index = enigma.get_index_of_letter(enigma.rotors["right_input"], letter)
 
     # Encoded letter
     encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
+    os.system("clear")
     print(f"Input: {user_input_letter} -> {encoded_letter}")
 
