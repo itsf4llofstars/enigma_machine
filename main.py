@@ -102,13 +102,3 @@ while go:
     encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
     print(f"Input: {user_input_letter} -> {encoded_letter}")
 
-print(f"User quit")
-
-# example and mesage for pretty pretty print testing
-example_str = "THEXEASTXMOONXRISESXWITHXNOXTIDEX"
-message: str = "THEXCHAIRXISXAGAINSTXTHEXWALLXJOHNXHASXAXLONGXMUSTACHEXALLXWORKXANDXNOXPLAYXMAKEXJACKXAXDULLXBOY"
-
-f.print_out(example_str)
-print()
-f.print_out(message)
-print()
