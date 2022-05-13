@@ -25,7 +25,7 @@ under certain conditions; type `show c' for details.
 
 
 def get_reflector() -> str:
-    """Polls the secret agant to select which reflector
+    """Polls the secret agant to select which reflector they wish to use
     and returns it.
 
     Returns:
@@ -39,17 +39,18 @@ def get_rings() -> str:
     it.
 
     Returns:
-        str: Three letter as a ring-setting
+        str: Three letters as a ring-setting
     """
     rings = str(input("Enter a three letter ring setting: "))
     return rings.upper()
 
 
 def get_key() -> str:
-    """_summary_
+    """Polls the secret agent for a three letter key setting and returns
+    it.
 
     Returns:
-        str: _description_
+        str: Three letters as a string key-setting
     """
     key = str(input("Enter a three letter key: "))
     return key.upper()
