@@ -29,16 +29,17 @@ def get_reflector() -> str:
     and returns it.
 
     Returns:
-        str: (str): The letter of the rotor B or C
+        str: The letter of the rotor B or C
     """
     return str(input("Enter the reflector you wish to use [B/C]: ").upper())
 
 
 def get_rings() -> str:
-    """_summary_
+    """Polls the secret agent for a three letter ring setting and returns
+    it.
 
     Returns:
-        str: _description_
+        str: Three letter as a ring-setting
     """
     rings = str(input("Enter a three letter ring setting: "))
     return rings.upper()
