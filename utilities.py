@@ -78,7 +78,7 @@ def get_rotors():
     return list(rotors)
 
 
-def get_user_letter():
+def get_user_letter() -> str:
     """Ask the secret agent to enter a single letter to be encoded and prints
     how to quit the task of entering letters.
 
@@ -89,6 +89,9 @@ def get_user_letter():
 
 
 def print_out(message):
+    """Prints the encoded or decoded message in blocks of four letters
+    and lines of 7 blocks.
+    """
     print("Message:\n")
     for i, letter in enumerate(message):
         if i > 0 and i % 4 == 0:
