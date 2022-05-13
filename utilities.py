@@ -25,12 +25,13 @@ under certain conditions; type `show c' for details.
 
 
 def get_reflector() -> str:
-    """_summary_
+    """Polls the secret agant to select which rotor they wish to use
+    and returns it.
 
     Returns:
-        str: _description_
+        str: (str): The letter of the rotor B or C
     """
-    return str(input("Enter the reflector you wish to use [B/C]: "))
+    return str(input("Enter the reflector you wish to use [B/C]: ").upper())
 
 
 def get_rings() -> str:
