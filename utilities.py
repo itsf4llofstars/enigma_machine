@@ -25,7 +25,7 @@ under certain conditions; type `show c' for details.
 
 
 def get_reflector() -> str:
-    """Polls the secret agant to select which rotor they wish to use
+    """Polls the secret agant to select which reflector
     and returns it.
 
     Returns:
