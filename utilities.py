@@ -58,10 +58,12 @@ def get_key() -> str:
 
 # TODO: Add error checking
 def get_rotors():
-    """_summary_
+    """Polls the secret agent for each individual rotor as a Roman numeral
+    and appends it to a rotor list in order of first-left, second-center,
+    third-right and returns the list.
 
     Returns:
-        _type_: _description_
+        list(str): A list of three strings
     """
     rotors = []
     rotor = str(input("Enter the left rotor: "))
