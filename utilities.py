@@ -79,6 +79,12 @@ def get_rotors():
 
 
 def get_user_letter():
+    """Ask the secret agent to enter a single letter to be encoded and prints
+    how to quit the task of entering letters.
+
+    Returns:
+        str: The letter to be encoded
+    """
     return str(input("Enter your letter (qq to quit): ").upper())
 
 
