@@ -9,7 +9,7 @@ letters = [
 plugboard = []
 
 while True:
-    pair = input(str('Enter a letter pair [qq quits]: ').upper())
+    pair = input(str('Enter a letter pair [qq quits]: ')).upper()
     if pair == 'QQ':
         break
     else:
