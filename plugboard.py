@@ -29,7 +29,7 @@ while True:
     plugstring += pair
     plugboard.append(pair)
 
-    if len(plugboard) == 3:
+    if len(plugboard) == 13:
         break
 
 print(plugboard)
