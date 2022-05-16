@@ -25,29 +25,32 @@ under certain conditions; type `show c' for details.
 
 
 def get_reflector() -> str:
-    """_summary_
+    """Polls the secret agant to select which reflector they wish to use
+    and returns it.
 
     Returns:
-        str: _description_
+        str: The letter of the rotor B or C
     """
     return str(input("Enter the reflector you wish to use [B/C]: ").upper())
 
 
 def get_rings() -> str:
-    """_summary_
+    """Polls the secret agent for a three letter ring setting and returns
+    it.
 
     Returns:
-        str: _description_
+        str: Three letters as a ring-setting
     """
     rings = str(input("Enter a three letter ring setting: "))
     return rings.upper()
 
 
 def get_key() -> str:
-    """_summary_
+    """Polls the secret agent for a three letter key setting and returns
+    it.
 
     Returns:
-        str: _description_
+        str: Three letters as a string key-setting
     """
     key = str(input("Enter a three letter key: "))
     return key.upper()
@@ -55,10 +58,12 @@ def get_key() -> str:
 
 # TODO: Add error checking
 def get_rotors():
-    """_summary_
+    """Polls the secret agent for each individual rotor as a Roman numeral
+    and appends it to a rotor list in order of first-left, second-center,
+    third-right and returns the list.
 
     Returns:
-        _type_: _description_
+        list(str): A list of three strings
     """
     rotors = []
     rotor = str(input("Enter the left rotor: "))
@@ -73,20 +78,19 @@ def get_rotors():
     return list(rotors)
 
 
-def get_user_letter():
-    """_summary_
+def get_user_letter() -> str:
+    """Ask the secret agent to enter a single letter to be encoded and prints
+    how to quit the task of entering letters.
 
     Returns:
-        _type_: _description_
+        str: The letter to be encoded
     """
     return str(input("Enter your letter (qq to quit): ").upper())
 
 
-def print_out(message):
-    """_summary_
-
-    Args:
-        message (_type_): _description_
+def print_out(message) -> None:
+    """Prints the encoded or decoded message in blocks of four letters
+    and lines of 7 blocks.
     """
     print("Message:\n")
     for i, letter in enumerate(message):
