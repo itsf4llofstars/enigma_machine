@@ -7,14 +7,33 @@ letters = [
 ]
 
 plugboard = []
+plugstring = ''
+
+in_letter = 'C'
 
 while True:
     pair = input(str('Enter a letter pair [qq quits]: ')).upper()
     if pair == 'QQ':
         break
-    else:
-        plugboard.append(pair)
 
-    print(plugboard)
+    if pair[0] in plugstring or pair[1] in plugstring:
+        print('Double letter error')
+        del plugboard
+        del plugstring
+        break
+
+    plugstring += pair
+    plugboard.append(pair)
 
 print(plugboard)
+print(plugstring)
+print()
+print(in_letter)
+
+for one in plugboard:
+    if in_letter in one and in_letter == one[0]:
+        in_letter = one[1]
+    elif in_letter in one and in_letter == one[1]:
+        in_letter = one[0]
+
+print(in_letter)
