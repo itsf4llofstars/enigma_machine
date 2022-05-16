@@ -13,6 +13,10 @@ in_letter = 'C'
 
 while True:
     pair = input(str('Enter a letter pair [qq quits]: ')).upper()
+    if len(pair) != 2:
+        print('len error')
+        continue
+
     if pair == 'QQ':
         break
 
@@ -24,6 +28,9 @@ while True:
 
     plugstring += pair
     plugboard.append(pair)
+
+    if len(plugboard) == 3:
+        break
 
 print(plugboard)
 print(plugstring)
