@@ -37,7 +37,6 @@ print(in_letter)
 for one in plugboard:
     if in_letter in one and in_letter == one[0]:
         in_letter = one[1]
-    elif in_letter in one and in_letter == one[1]:
-        in_letter = one[0]
+
 
 print(in_letter)
