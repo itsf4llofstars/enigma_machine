@@ -21,8 +21,6 @@ while True:
         break
     elif pair[0] in plugstring or pair[1] in plugstring or pair[0] == pair[1]:
         print('Double letter error')
-        del plugboard
-        del plugstring
         exit(1)
     else:
         plugstring += pair
