@@ -34,9 +34,9 @@ print(plugstring)
 print()
 print(in_letter)
 
-for one in plugboard:
-    if in_letter in one and in_letter == one[0]:
-        in_letter = one[1]
+for letter_pair in plugboard:
+    if in_letter == letter_pair[0]:
+        in_letter = letter_pair[1]
 
 
 print(in_letter)
