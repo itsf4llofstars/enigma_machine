@@ -19,15 +19,14 @@ while True:
 
     if pair == 'QQ':
         break
-
-    if pair[0] in plugstring or pair[1] in plugstring:
+    elif pair[0] in plugstring or pair[1] in plugstring or pair[0] == pair[1]:
         print('Double letter error')
         del plugboard
         del plugstring
-        break
-
-    plugstring += pair
-    plugboard.append(pair)
+        exit(1)
+    else:
+        plugstring += pair
+        plugboard.append(pair)
 
     if len(plugboard) == 13:
         break
