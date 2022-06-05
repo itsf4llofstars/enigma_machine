@@ -101,15 +101,3 @@ while go:
     os.system("clear")
     print(f"Input: {user_input_letter} -> {encoded_letter}")
 
-<<<<<<< HEAD
-# print(f"User quit")
-# 
-# example_str = "THEXEASTXMOONXRISESXWITHXNOXTIDEX"
-# message: str = "THEXCHAIRXISXAGAINSTXTHEXWALLXJOHNXHASXAXLONGXMUSTACHEXALLXWORKXANDXNOXPLAYXMAKEXJACKXAXDULLXBOY"
-# 
-# f.print_out(example_str)
-# print()
-# f.print_out(message)
-# print()
-=======
->>>>>>> main
