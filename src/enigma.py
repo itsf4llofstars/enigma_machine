@@ -164,7 +164,8 @@ class Enigma:
         deque.rotate(self.rotors["left_input"], -1)
         deque.rotate(self.rotors["left_output"], -1)
 
-    def get_index_of_letter(self, rotor, letter):
+    @staticmethod
+    def get_index_of_letter(rotor, letter):
         """_summary_
 
         Args:
