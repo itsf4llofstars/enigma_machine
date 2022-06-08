@@ -278,22 +278,46 @@ def main():
     """
     # </editor-fold>
 
+    # MAPPING TWO
     reflector = 'C'
     rotors = ['III', 'IV', 'I']
     ring = 'BDF'
     key = 'HJL'
-
     enigma = Enigma(reflector, rotors, ring, key)
     enigma.set_rotors()
     enigma.set_rings()
     enigma.set_key()
 
     letter_in = 'D'
-
     enigma.rotate_rotor_right()
-
     enigma.show_rotors()
 
+    index_of_letter = enigma.get_index_of_letter(enigma.keyboard, letter_in)
+    print(index_of_letter)
+
+    letter_at_index = enigma.get_letter_at_index(enigma.rotors["right_input"], index_of_letter)
+    print(letter_at_index)
+
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["right_output"], letter_at_index)
+    print(index_of_letter)
+
+    letter_at_index = enigma.get_letter_at_index(enigma.rotors["center_input"], index_of_letter)
+    print(letter_at_index)
+
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["center_output"], letter_at_index)
+    print(index_of_letter)
+
+    letter_at_index = enigma.get_letter_at_index(enigma.rotors["left_input"], index_of_letter)
+    print(letter_at_index)
+
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["center_output"], letter_at_index)
+    print(index_of_letter)
+
+    letter_at_index = enigma.get_letter_at_index(enigma.reflector, index_of_letter)
+    print(letter_at_index)
+
+    index_of_letter = enigma.get_reflector_out_index(enigma.reflector, index_of_letter, letter_at_index)
+    print(index_of_letter)
 
 
 if __name__ == "__main__":
