@@ -214,6 +214,9 @@ class Enigma:
 
 
 def main():
+    # <editor-fold desc="MAPPING ONE">
+    # MAPPING ONE
+    """
     # The below four calls must remain in this order
     enigma = Enigma("C", ["I", "II", "III"], "XGE", "WMC")
     enigma.set_rotors()
@@ -272,6 +275,8 @@ def main():
     # Encoded letter
     encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
     print(f"Input: {user_input_letter} Encoded to: {encoded_letter}\n")
+    """
+    # </editor-fold>
 
 
 if __name__ == "__main__":
