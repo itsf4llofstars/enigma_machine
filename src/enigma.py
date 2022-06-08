@@ -194,7 +194,8 @@ class Enigma:
         """
         return rotor.index(letter)
 
-    def get_reflector_out_index(self, reflector, index, letter):
+    @staticmethod
+    def get_reflector_out_index(reflector, index, letter):
         """_summary_
 
         Args:
