@@ -304,6 +304,8 @@ def main():
     reflectro_out_index = enigma.get_reflector_out_index(enigma.reflector, index_of_letter, letter_at_index)
     print(reflectro_out_index)
 
+    # TODO: From here look a mapping one to see how we progress up the rotors.
+
 
 if __name__ == "__main__":
     main()
