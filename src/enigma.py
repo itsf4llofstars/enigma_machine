@@ -288,36 +288,21 @@ def main():
     enigma.set_rings()
     enigma.set_key()
 
-    letter_in = 'D'
+    letter_in = 'B'
     enigma.rotate_rotor_right()
     enigma.show_rotors()
 
     index_of_letter = enigma.get_index_of_letter(enigma.keyboard, letter_in)
-    print(index_of_letter)
-
     letter_at_index = enigma.get_letter_at_index(enigma.rotors["right_input"], index_of_letter)
-    print(letter_at_index)
-
     index_of_letter = enigma.get_index_of_letter(enigma.rotors["right_output"], letter_at_index)
-    print(index_of_letter)
-
     letter_at_index = enigma.get_letter_at_index(enigma.rotors["center_input"], index_of_letter)
-    print(letter_at_index)
-
     index_of_letter = enigma.get_index_of_letter(enigma.rotors["center_output"], letter_at_index)
-    print(index_of_letter)
-
     letter_at_index = enigma.get_letter_at_index(enigma.rotors["left_input"], index_of_letter)
-    print(letter_at_index)
-
-    index_of_letter = enigma.get_index_of_letter(enigma.rotors["center_output"], letter_at_index)
-    print(index_of_letter)
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["left_output"], letter_at_index)
 
     letter_at_index = enigma.get_letter_at_index(enigma.reflector, index_of_letter)
-    print(letter_at_index)
-
-    index_of_letter = enigma.get_reflector_out_index(enigma.reflector, index_of_letter, letter_at_index)
-    print(index_of_letter)
+    reflectro_out_index = enigma.get_reflector_out_index(enigma.reflector, index_of_letter, letter_at_index)
+    print(reflectro_out_index)
 
 
 if __name__ == "__main__":
