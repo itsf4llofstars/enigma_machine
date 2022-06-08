@@ -84,7 +84,7 @@ class Enigma:
                 'D', 'L', 'R', 'D', 'K', 'N', 'O', 'Q', 'V', 'Y', 'R', 'F', 'L'
             ],
         }
-
+# fmt: on
         self.reflector = self.stored_reflectors[reflector]
 
         self.selected_rotors = selected_rotors
@@ -210,7 +210,6 @@ class Enigma:
         while reflector[index] != letter:
             index = (1 + index) % len(reflector)
         return index
-# fmt: on
 
 
 def main():
