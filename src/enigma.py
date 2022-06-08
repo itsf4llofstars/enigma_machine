@@ -181,7 +181,8 @@ class Enigma:
     def get_letter_at_index(rotor, index):
         return rotor[index]
 
-    def get_rotor_output_index(self, rotor, letter):
+    @staticmethod
+    def get_rotor_output_index(rotor, letter):
         """_summary_
 
         Args:
