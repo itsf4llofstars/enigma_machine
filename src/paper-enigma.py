@@ -8,27 +8,70 @@ from collections import deque
 # fmt: off
 class PaperEnigma:
     def __init__(self, days_rotors, key):
-        self.in_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
+        self.in_out = deque([
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+            "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        ])
 
-        self.rotor1_in = deque(["E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O", "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J"])
-        self.rotor1_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
+        self.rotor1_in = deque([
+            "E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O",
+            "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J"
+        ])
+        self.rotor1_out = deque([
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+            "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        ])
 
-        self.rotor2_in = deque(["A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W", "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E"])
-        self.rotor2_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
+        self.rotor2_in = deque([
+            "A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W",
+            "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E"
+        ])
+        self.rotor2_out = deque([
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+            "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        ])
 
-        self.rotor3_in = deque(["B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z", "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O"])
-        self.rotor3_out = deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"])
+        self.rotor3_in = deque([
+            "B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z",
+            "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O"
+        ])
+        self.rotor3_out = deque([
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+            "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        ])
 
-        self.reflector = deque(["A", "B", "C", "D", "E", "F", "G", "D", "I", "J", "K", "G", "M", "K", "M", "I", "E", "B", "F", "T", "C", "V", "V", "J", "A", "T"])
+        self.reflector = deque([
+            "A", "B", "C", "D", "E", "F", "G", "D", "I", "J", "K", "G", "M",
+            "K", "M", "I", "E", "B", "F", "T", "C", "V", "V", "J", "A", "T"
+        ])
 
         self.rotors = {
-            "left_in": deque(["E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O", "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J"]),
-            "left_out": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "center_in": deque(["A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W", "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E"]),
-            "center_out": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
-            "right_in": deque(["B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z", "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O"]),
-            "right_out": deque(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]),
+            "left_in": deque([
+                "E", "K", "M", "F", "L", "G", "D", "Q", "V", "Z", "N", "T", "O",
+                "W", "Y", "H", "X", "U", "S", "P", "A", "I", "B", "R", "C", "J"
+            ]),
+            "left_out": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
+            "center_in": deque([
+                "A", "J", "D", "K", "S", "I", "R", "U", "X", "B", "L", "H", "W",
+                "T", "M", "C", "Q", "G", "Z", "N", "P", "Y", "F", "V", "O", "E"
+            ]),
+            "center_out": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
+            "right_in": deque([
+                "B", "D", "F", "H", "J", "L", "C", "P", "R", "T", "X", "V", "Z",
+                "N", "Y", "E", "I", "W", "G", "A", "K", "M", "U", "S", "Q", "O"
+            ]),
+            "right_out": deque([
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+            ]),
         }
+# fmt: on
 
         self.days_rotors = days_rotors
         self.key = key.upper()
@@ -102,7 +145,6 @@ class PaperEnigma:
         while self.reflector[index] != letter:
             index = (1 + index) % len(self.reflector)
         return index
-# fmt: on
 
 
 def main():
@@ -256,6 +298,7 @@ def main():
 
 if __name__ == "__main__":
     import os
+    import sys
 
     os.system("clear")
-    main()
+    sys.exit(main())
