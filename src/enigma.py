@@ -60,8 +60,8 @@ class Enigma:
             ],
         }
 # fmt: on
-        self.reflector = self.stored_reflectors[reflector]
 
+        self.reflector = self.stored_reflectors[reflector]
         self.selected_rotors = selected_rotors
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
@@ -277,8 +277,6 @@ def main():
     letter_at_index = enigma.get_letter_at_index(enigma.reflector, index_of_letter)
     reflectro_out_index = enigma.get_reflector_out_index(enigma.reflector, index_of_letter, letter_at_index)
     print(reflectro_out_index)
-
-    # TODO: From here look a mapping one to see how we progress up the rotors.
 
 
 if __name__ == "__main__":
