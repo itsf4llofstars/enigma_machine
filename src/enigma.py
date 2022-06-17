@@ -84,7 +84,7 @@ class Enigma:
                 'D', 'L', 'R', 'D', 'K', 'N', 'O', 'Q', 'V', 'Y', 'R', 'F', 'L'
             ],
         }
-
+# fmt: on
         self.reflector = self.stored_reflectors[reflector]
 
         self.selected_rotors = selected_rotors
@@ -164,7 +164,8 @@ class Enigma:
         deque.rotate(self.rotors["left_input"], -1)
         deque.rotate(self.rotors["left_output"], -1)
 
-    def get_index_of_letter(self, rotor, letter):
+    @staticmethod
+    def get_index_of_letter(rotor, letter):
         """_summary_
 
         Args:
@@ -176,10 +177,12 @@ class Enigma:
         """
         return rotor.index(letter)
 
-    def get_letter_at_index(self, rotor, index):
+    @staticmethod
+    def get_letter_at_index(rotor, index):
         return rotor[index]
 
-    def get_rotor_output_index(self, rotor, letter):
+    @staticmethod
+    def get_rotor_output_index(rotor, letter):
         """_summary_
 
         Args:
@@ -191,7 +194,8 @@ class Enigma:
         """
         return rotor.index(letter)
 
-    def get_reflector_out_index(self, reflector, index, letter):
+    @staticmethod
+    def get_reflector_out_index(reflector, index, letter):
         """_summary_
 
         Args:
@@ -206,10 +210,12 @@ class Enigma:
         while reflector[index] != letter:
             index = (1 + index) % len(reflector)
         return index
-# fmt: on
 
 
 def main():
+    # <editor-fold desc="MAPPING ONE">
+    # MAPPING ONE
+    """
     # The below four calls must remain in this order
     enigma = Enigma("C", ["I", "II", "III"], "XGE", "WMC")
     enigma.set_rotors()
@@ -268,6 +274,36 @@ def main():
     # Encoded letter
     encoded_letter = enigma.get_letter_at_index(enigma.keyboard, index)
     print(f"Input: {user_input_letter} Encoded to: {encoded_letter}\n")
+    """
+    # </editor-fold>
+
+    # MAPPING TWO
+    reflector = 'C'
+    rotors = ['III', 'IV', 'I']
+    ring = 'BDF'
+    key = 'HJL'
+    enigma = Enigma(reflector, rotors, ring, key)
+    enigma.set_rotors()
+    enigma.set_rings()
+    enigma.set_key()
+
+    letter_in = 'B'
+    enigma.rotate_rotor_right()
+    enigma.show_rotors()
+
+    index_of_letter = enigma.get_index_of_letter(enigma.keyboard, letter_in)
+    letter_at_index = enigma.get_letter_at_index(enigma.rotors["right_input"], index_of_letter)
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["right_output"], letter_at_index)
+    letter_at_index = enigma.get_letter_at_index(enigma.rotors["center_input"], index_of_letter)
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["center_output"], letter_at_index)
+    letter_at_index = enigma.get_letter_at_index(enigma.rotors["left_input"], index_of_letter)
+    index_of_letter = enigma.get_index_of_letter(enigma.rotors["left_output"], letter_at_index)
+
+    letter_at_index = enigma.get_letter_at_index(enigma.reflector, index_of_letter)
+    reflectro_out_index = enigma.get_reflector_out_index(enigma.reflector, index_of_letter, letter_at_index)
+    print(reflectro_out_index)
+
+    # TODO: From here look a mapping one to see how we progress up the rotors.
 
 
 if __name__ == "__main__":

@@ -82,11 +82,9 @@ def get_user_letter():
     return str(input("Enter your letter (qq to quit): ").upper())
 
 
-def print_out(message):
-    """_summary_
-
-    Args:
-        message (_type_): _description_
+def print_out(message) -> None:
+    """Prints the encoded or decoded message in blocks of four letters
+    and lines of 7 blocks.
     """
     print("Message:\n")
     for i, letter in enumerate(message):
