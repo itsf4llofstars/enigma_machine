@@ -1,30 +1,27 @@
 def get_reflector() -> str:
-    """Polls the secret agant to select which reflector they wish to use
-    and returns it.
+    """_summary_
 
     Returns:
-        str: The letter of the rotor B or C
+        str: _description_
     """
     return str(input("Enter the reflector you wish to use [B/C]: ").upper())
 
 
 def get_rings() -> str:
-    """Polls the secret agent for a three letter ring setting and returns
-    it.
+    """_summary_
 
     Returns:
-        str: Three letters as a ring-setting
+        str: _description_
     """
     rings = str(input("Enter a three letter ring setting: "))
     return rings.upper()
 
 
 def get_key() -> str:
-    """Polls the secret agent for a three letter key setting and returns
-    it.
+    """_summary_
 
     Returns:
-        str: Three letters as a string key-setting
+        str: _description_
     """
     key = str(input("Enter a three letter key: "))
     return key.upper()
@@ -32,12 +29,10 @@ def get_key() -> str:
 
 # TODO: Add error checking
 def get_rotors():
-    """Polls the secret agent for each individual rotor as a Roman numeral
-    and appends it to a rotor list in order of first-left, second-center,
-    third-right and returns the list.
+    """_summary_
 
     Returns:
-        list(str): A list of three strings
+        _type_: _description_
     """
     rotors = []
     rotor = str(input("Enter the left rotor: "))
@@ -52,12 +47,11 @@ def get_rotors():
     return list(rotors)
 
 
-def get_user_letter() -> str:
-    """Ask the secret agent to enter a single letter to be encoded and prints
-    how to quit the task of entering letters.
+def get_user_letter():
+    """_summary_
 
     Returns:
-        str: The letter to be encoded
+        _type_: _description_
     """
     return str(input("Enter your letter (qq to quit): ").upper())
 

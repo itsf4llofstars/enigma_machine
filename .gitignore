@@ -4,6 +4,9 @@ rotors.txt
 settings.json
 .vscode/settings.json
 .vscode/
+main
+!main.c
+a.out
 .idea/
 
 # Byte-compiled / optimized / DLL files
