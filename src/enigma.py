@@ -1,28 +1,3 @@
-#!/usr/bin/env python3
-"""
-Encodes and Decodes entered text in the manner an Enigma Macine does
-Copyright (C) 2022  itsf4llofstars
-https://www/github.com/itsf4llofstars Email: irooted4hal@mailfence.com
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-enigma_machine  Copyright (C) 2022  itsf4llofstars
-This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
-This is free software, and you are welcome to redistribute it
-under certain conditions; type `show c' for details.
-"""
-
 from collections import deque
 
 
@@ -85,8 +60,8 @@ class Enigma:
             ],
         }
 # fmt: on
-        self.reflector = self.stored_reflectors[reflector]
 
+        self.reflector = self.stored_reflectors[reflector]
         self.selected_rotors = selected_rotors
         self.ring_setting = rings.upper()
         self.key_setting = key.upper()
@@ -302,8 +277,6 @@ def main():
     letter_at_index = enigma.get_letter_at_index(enigma.reflector, index_of_letter)
     reflectro_out_index = enigma.get_reflector_out_index(enigma.reflector, index_of_letter, letter_at_index)
     print(reflectro_out_index)
-
-    # TODO: From here look a mapping one to see how we progress up the rotors.
 
 
 if __name__ == "__main__":
