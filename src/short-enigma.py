@@ -1,5 +1,4 @@
 from collections import deque
-from sys import exit
 
 
 # fmt: off
@@ -17,6 +16,7 @@ class ShortEnigma:
         self.rotor3_out = deque(['A', 'B', 'C', 'D', 'E', 'F'])
 
         self.reflector = ['K', 'E', 'B', 'E', 'K', 'B']
+# fmt: on
 
         self.rotors = {
             "left_in": self.rotor1_in,
@@ -103,7 +103,6 @@ class ShortEnigma:
         while self.reflector[in_index] != reflector_in_letter:
             in_index = (1 + in_index) % 6
         return in_index
-# fmt: on
 
 
 def main():
@@ -166,7 +165,8 @@ def main():
 
 
 if __name__ == "__main__":
-    from os import system
+    import os
+    import sys
 
-    # system("clear")
-    main()
+    os.system("clear")
+    sys.exit(main())
