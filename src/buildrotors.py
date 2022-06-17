@@ -89,12 +89,6 @@ def main():
 
     print("New Rotors and reflectors built")
 
-    # print(rotor_i)
-    # print(rotor_ii)
-    # print(rotor_iii)
-    # print(rotor_iv)
-    # print(rotor_v)
-
 
 if __name__ == "__main__":
     main()
