@@ -43,3 +43,9 @@ def main():
 
 
     print(in_letter)
+
+
+if __name__ == "__main__":
+    import sys
+
+    sys.exit(main())
