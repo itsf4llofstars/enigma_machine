@@ -112,18 +112,25 @@ def print_rotors() -> None:
     print()
 
 
-user_key: str = get_key()
+def main():
+    user_key: str = get_key()
 
-if 0:
-    encode_letter(user_key)
-else:
-    user_message: str = get_message()
-    user_encoded_message = encode_message(user_message, user_key)
-    print_rotors()
+    if 0:
+        encode_letter(user_key)
+    else:
+        user_message: str = get_message()
+        user_encoded_message = encode_message(user_message, user_key)
+        print_rotors()
 
-    print(user_key)
-    print(rotor_in)
-    print(rotor_out)
-    print(user_message)
-    [print(letter, end="") for letter in user_encoded_message]
-    print()
+        print(user_key)
+        print(rotor_in)
+        print(rotor_out)
+        print(user_message)
+        [print(letter, end="") for letter in user_encoded_message]
+        print()
+
+
+if __name__ == "__main__":
+    import sys
+
+    sys.exit(main())
