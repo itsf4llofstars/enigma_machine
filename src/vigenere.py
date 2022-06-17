@@ -128,3 +128,9 @@ def main():
         print(user_message)
         [print(letter, end="") for letter in user_encoded_message]
         print()
+
+
+if __name__ == "__main__":
+    import sys
+
+    sys.exit(main())
