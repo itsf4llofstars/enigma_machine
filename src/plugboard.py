@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Plug Board Test Script"""
 
 letters = [

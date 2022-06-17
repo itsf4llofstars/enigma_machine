@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # fmt: off
 rotor_in = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
