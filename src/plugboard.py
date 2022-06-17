@@ -8,22 +8,24 @@ letters = [
 # fmt: on
 
 plugboard = []
-plugstring = ''
+plugstring = ""
 
-in_letter = 'C'
+in_letter = "C"
+
 
 def main():
     global letters, plugboard, plugstring, in_letter
+
     while True:
-        pair = input(str('Enter a letter pair [qq quits]: ')).upper()
+        pair = input(str("Enter a letter pair [qq quits]: ")).upper()
         if len(pair) != 2:
-            print('len error')
+            print("len error")
             continue
 
-        if pair == 'QQ':
+        if pair == "QQ":
             break
         elif pair[0] in plugstring or pair[1] in plugstring or pair[0] == pair[1]:
-            print('Double letter error')
+            print("Double letter error")
             exit(1)
         else:
             plugstring += pair
@@ -40,7 +42,6 @@ def main():
     for letter_pair in plugboard:
         if in_letter == letter_pair[0]:
             in_letter = letter_pair[1]
-
 
     print(in_letter)
 
