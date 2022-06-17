@@ -13,6 +13,7 @@ plugstring = ''
 in_letter = 'C'
 
 def main():
+    global letters, plugboard, plugstring, in_letter
     while True:
         pair = input(str('Enter a letter pair [qq quits]: ')).upper()
         if len(pair) != 2:
