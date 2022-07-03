@@ -11,10 +11,11 @@ plugboard = []
 plugstring = ""
 
 in_letter = "C"
+out_letter = "H"
 
 
 def main():
-    global letters, plugboard, plugstring, in_letter
+    global letters, plugboard, plugstring, in_letter, out_letter
 
     while True:
         pair = input(str("Enter a letter pair [qq quits]: ")).upper()
@@ -38,12 +39,20 @@ def main():
     print(plugstring)
     print()
     print(in_letter)
+    print(out_letter)
 
+    # Maps an input letter to it's coresponding output plugboard letter
     for letter_pair in plugboard:
         if in_letter == letter_pair[0]:
             in_letter = letter_pair[1]
 
+    # Maps an output letter to it's coresponding input plugboard letter
+    for letter_pair in plugboard:
+        if out_letter == letter_pair[1]:
+            out_letter = letter_pair[0]
+
     print(in_letter)
+    print(out_letter)
 
 
 if __name__ == "__main__":
